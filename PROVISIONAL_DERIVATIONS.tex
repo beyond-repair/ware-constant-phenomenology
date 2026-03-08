@@ -10,126 +10,146 @@
 \usepackage{tcolorbox}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{pgfplots} % For self-contained plotting
-\pgfplotsset{compat=1.17}
-
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 \geometry{margin=1in}
 
-% --- Custom Colors for Links ---
+% --- Hyperlink styling ---
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
+    citecolor=blue,
     urlcolor=cyan,
 }
 
-\title{Provisional Derivations for the Ware Constant $W$: Informational Flux and Action Principle}
-\author{William B. Ware}
-\date{December 2025}
+% --- Title & Metadata ---
+\title{Provisional Derivations for the Ware Constant $W \approx 0.08$: \\
+Informational Flux and SVT Hybrid Framework}
+\author{William B. Ware \\
+Atomic Dream Labs \\ 
+Conroe, Texas, USA \\ 
+\href{https://github.com/beyond-repair}{GitHub: beyond-repair} \\ 
+\href{https://x.com/AtomicDreamlabs}{@AtomicDreamlabs}}
+\date{March 2026}
 
 \begin{document}
 
 \maketitle
 
-\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!50!black,title=Cautionary Note]
-The contents of this document are \textbf{provisional and phenomenological}. These derivations serve as placeholders to ensure mathematical consistency while the first-principles derivation from the Primordial Informational Field (PIF) is finalized. For the established foundation, see the \href{https://github.com/YourRepo/Core_Derivations.pdf}{Core Derivations Paper}.
+\begin{tcolorbox}[colback=yellow!10!white, colframe=yellow!70!black, title=Important Cautionary Note, sharp corners]
+This document presents \textbf{provisional, phenomenological} elements of the Ware Constant framework. These constructions ensure mathematical consistency and empirical motivation while a complete first-principles derivation from the Primordial Informational Field (PIF) and entropy extremization is finalized. See companion repositories (e.g., \texttt{CFT-v3.1}, \texttt{ware-constant-phenomenology}) and forthcoming core derivation papers for the established foundation.
 \end{tcolorbox}
 
 \begin{abstract}
-This document records elements of the Ware Constant framework that are mathematically consistent and empirically motivated, but not yet uniquely derived from a fundamental action principle. We outline a Scalar-Vector-Tensor (SVT) hybrid Lagrangian, the resulting $1/r$ acceleration law, and the schematic form of the Informational Flux Tensor.
+This technical note documents mathematically consistent, empirically motivated components of the Ware Constant ($W \approx 0.08$) framework, including the informational acceleration law, transition radius, and a provisional Scalar-Vector-Tensor (SVT) hybrid Lagrangian. These serve as placeholders bridging phenomenology to a future PIF-derived action principle. The structure is designed to reproduce flat rotation curves and cluster-scale lensing amplification while remaining compatible with local general relativity tests.
 \end{abstract}
+
+\keywords{modified gravity, screened backreaction, informational flux, Ware Constant, SVT hybrid}
 
 \section{Informational Acceleration Law}
 
-The total acceleration experienced by a test body is modeled as the sum of the Newtonian and Informational components:
+The total acceleration in the weak-field, static limit is modeled as:
+
 \begin{equation}
-\mathbf{a}_{\rm total} = \mathbf{a}_{\rm N} + \mathbf{a}_{\rm info} = -\frac{GM}{r^2}\hat{\mathbf{r}} + W \frac{G M}{r_0\, r} \hat{\mathbf{r}} \label{eq:atotal}
+\mathbf{a}_{\rm total} = -\frac{GM}{r^2}\hat{\mathbf{r}} + W \frac{G M}{r_0 r} \hat{\mathbf{r}} \label{eq:atotal}
 \end{equation}
 
-\noindent This formulation ensures a transition to flat rotation curves. The transition radius $r_{\rm trans}$, where the informational acceleration equals the Newtonian pull ($|\mathbf{a}_{\rm N}| = |\mathbf{a}_{\rm info}|$), is given by:
+This form ensures an asymptotically flat rotation curve ($v^2(r) \to W \frac{GM}{r_0}$ at large $r$). The transition radius where the informational term equals the Newtonian term in magnitude is:
+
 \begin{equation}
-r_{\rm trans} = \frac{r_0}{W} \label{eq:rtrans}
+r_{\rm trans} = \frac{r_0}{W} \approx 12.5 \, r_0 \label{eq:rtrans}
 \end{equation}
 
-% --- Self-Contained Figure ---
 \begin{figure}[h!]
     \centering
     \begin{tikzpicture}
     \begin{axis}[
-        width=0.8\textwidth,
-        height=6cm,
+        width=0.85\textwidth,
+        height=6.5cm,
         xlabel={Radius $r$ (kpc)},
-        ylabel={Acceleration (arb. units)},
-        xmin=0, xmax=20,
+        ylabel={Acceleration magnitude (arb. units)},
+        xmin=0, xmax=25,
         ymin=0, ymax=1.2,
-        domain=0.5:20,
-        samples=100,
+        domain=0.5:25,
+        samples=150,
         axis lines=left,
         legend pos=north east,
-        grid=major
-    ]
-        % Newtonian 1/r^2
-        \addplot[blue, thick, dashed] {1/x^2};
-        \addlegendentry{$a_{\rm N} \propto 1/r^2$}
-        
-        % Ware 1/r (scaled slightly for visibility)
-        \addplot[red, thick] {0.2/x}; 
-        \addlegendentry{$a_{\rm info} \propto 1/r$}
-        
-        % Transition point marker
-        \draw[dashed, black] (axis cs:5,0) -- (axis cs:5,0.04);
-        \node[above] at (axis cs:5, 0.2) {$r_{\rm trans}$};
+        grid=major,
+        tick label style={font=\small},
+        label style={font=\small}]
+        \addplot[blue, thick, dashed, domain=0.5:25] {1/x^2};
+        \addlegendentry{Newtonian $a_{\rm N} \propto 1/r^2$}
+        \addplot[red, thick] {0.08/x};
+        \addlegendentry{Informational $a_{\rm info} \propto 1/r$}
+        \draw[dashed, black] (axis cs:12.5,0) -- (axis cs:12.5,0.08);
+        \node[above, font=\small] at (axis cs:12.5, 0.2) {$r_{\rm trans} \approx r_0/W$};
     \end{axis}
     \end{tikzpicture}
-    \caption{Schematic transition from Newtonian dominance ($r < r_{\rm trans}$) to Informational dominance ($r > r_{\rm trans}$). The crossover point is defined by $r_{\rm trans} = r_0/W$.}
+    \caption{Schematic illustration of acceleration components. Newtonian term dominates at small radii; informational term takes over beyond the transition radius, producing flat rotation curves.}
     \label{fig:transition}
 \end{figure}
 
-\section{Parameter Definitions}
-
-To ensure consistency in numerical simulations (e.g., Python/SciPy rotation curve scripts), the following parameter definitions are adopted.
+\section{Provisional Parameter Definitions}
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{@{}llll@{}}
+\small
+\begin{tabular}{@{}l l l l@{}}
 \toprule
-\textbf{Symbol} & \textbf{Value / Relation} & \textbf{Units} & \textbf{Description} \\ \midrule
-$W$ & $\approx 0.08$ & [1] & Dimensionless coupling constant \\
-$r_0$ & $\sim 1 \text{ kpc}$ & [L] & Coherence length ($\propto \rho_{\rm info}^{-1/2}$) \\
-$r_{\rm trans}$ & $r_0 / W \approx 12.5 \text{ kpc}$ & [L] & Transition radius \\
-$\rho_{\rm info}$ & Microphysical variable & [L$^{-4}$] & Informational density of vacuum \\ 
+\textbf{Symbol} & \textbf{Value / Relation} & \textbf{Units} & \textbf{Description} \\
+\midrule
+$W$             & $\approx 0.08$           & dimensionless  & Universal backreaction constant \\
+$r_0$           & $\sim 1$--$10$ kpc       & length         & Characteristic coherence / virial scale \\
+$r_{\rm trans}$ & $r_0 / W \approx 12.5 r_0$ & length       & Newtonian-to-informational transition \\
+$\rho_{\rm info}$ & microphysical variable & $\mathrm{m^{-3}}$ or $\mathrm{L^{-3}}$ & Informational density scale \\
 \bottomrule
 \end{tabular}
-\caption{Provisional parameters for the Ware framework.}
+\caption{Key provisional parameters adopted for numerical consistency and simulations.}
 \label{tab:params}
 \end{table}
 
-\section{Provisional Informational Lagrangian (SVT Hybrid)}
+\section{Provisional SVT Hybrid Lagrangian}
 
-To formalize the physics, we introduce a provisional Scalar-Vector-Tensor (SVT) Lagrangian. This structure is architecturally similar to TeVeS or MoG frameworks but driven by informational density:
-\begin{equation}
-\mathcal{L}_{\rm info} = -\frac{1}{4} F_{\mu\nu}^{\rm info} F^{{\rm info}\,\mu\nu} + J_\mu^{\rm info} A_{\rm info}^\mu + \mathcal{V}(\phi_{\rm info}) \label{eq:lagrangian}
-\end{equation}
-
-\noindent The total action integrates these degrees of freedom with the Einstein-Hilbert action:
-\begin{equation}
-S_{\rm total} = \int d^4x \sqrt{-g} \Big[ \frac{1}{16\pi G} R + \mathcal{L}_{\rm matter} + W\, \mathcal{L}_{\rm info} \Big] \label{eq:action}
-\end{equation}
-
-\section{Informational Flux Tensor Form}
-
-For numerical implementation in GR solvers, the Informational Flux Tensor $T_{\mu\nu}^{\rm info}$ is derived from Eq. \ref{eq:lagrangian}. Neglecting the scalar potential for the kinetic limit, it takes the Maxwell-like form:
+A Scalar-Vector-Tensor hybrid Lagrangian is introduced to formalize the informational contribution:
 
 \begin{equation}
-T_{\mu\nu}^{\rm info} = F_{\mu\lambda}^{\rm info}F^{\lambda}_{\nu} - \frac{1}{4}g_{\mu\nu}F^{\alpha\beta}_{\rm info}F_{\alpha\beta}^{\rm info}
+\mathcal{L}_{\rm info} = -\frac{1}{4} F_{\mu\nu}^{\rm info} F^{{\rm info} \mu\nu} + J_\mu^{\rm info} A_{\rm info}^\mu + \mathcal{V}(\phi_{\rm info}) \label{eq:lagrangian}
 \end{equation}
 
-\noindent \textbf{Implementation Note:} Unlike standard electromagnetism, this tensor couples to the metric with strength $W$. In a static, spherically symmetric spacetime, the $T_{00}^{\rm info}$ component represents the energy density responsible for the effective "dark halo" potential.
+The total action is:
 
-\section{Notes for Collaborators}
+\begin{equation}
+S_{\rm total} = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} + \mathcal{L}_{\rm matter} + W \mathcal{L}_{\rm info} \right] \label{eq:action}
+\end{equation}
+
+Here $\phi_{\rm info}$ sets the scale of $r_0$ (e.g., via $\mathcal{V}(\phi_{\rm info}) \propto (\phi_{\rm info} - \phi_v)^2$), while $A_{\rm info}^\mu$ provides directional flux.
+
+\section{Informational Flux Tensor}
+
+In the kinetic-dominated limit (neglecting scalar potential), the stress-energy tensor takes the Maxwell-like form:
+
+\begin{equation}
+T_{\mu\nu}^{\rm info} = F_{\mu\lambda}^{\rm info} F^{\lambda\nu}_{\rm info} - \frac{1}{4} g_{\mu\nu} F_{\alpha\beta}^{\rm info} F^{{\rm info} \alpha\beta}
+\end{equation}
+
+The coupling strength is scaled by $W$. In static spherical symmetry, the $T_{00}^{\rm info}$ component contributes an effective energy density that mimics a dark halo at galactic scales.
+
+\section{Path to Full Derivation and Validation}
+
+These provisional elements are placeholders pending:
 \begin{itemize}
-    \item \textbf{Field Categorization:} This is an SVT hybrid. $A_\mu^{\rm info}$ provides vector-led directionality (flux), while $\phi_{\rm info}$ handles the scaling of $r_0$.
-    \item \textbf{Theoretical Frontier:} A primary goal is to derive $W$ and $r_0$ directly from the entropy-gradient of the PIF.
-    \item \textbf{Validation:} See \href{https://github.com/YourRepo/Stability_Analysis.pdf}{Stability Analysis} for preliminary ghost-free condition checks.
+    \item Derivation of $W$ and $r_0$ from PIF entropy extremization (cubic equation root).
+    \item Full variation of the action to recover Eq.~\eqref{eq:atotal} exactly.
+    \item Ghost/tachyon checks in linearized theory.
+    \item Numerical stability analysis (see forthcoming companion documents).
 \end{itemize}
+
+Validation targets include:
+- SPARC rotation curve fits with derived $a_{\rm info}(r)$.
+- Bullet Cluster lensing convergence maps from baryon-only profiles.
+- Muonic atom Lamb-shift predictions.
+
+\section*{Acknowledgments}
+Independent work under Atomic Dream Labs. Open for collaboration and review.
 
 \end{document}
