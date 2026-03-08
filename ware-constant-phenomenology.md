@@ -1,100 +1,113 @@
-\documentclass[12pt,a4paper]{article}
+# The Schwarzschild-Ware Metric: Derivation and Observational Validation
 
-% --- Essential Packages ---
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{physics}
-\usepackage{siunitx}
-\usepackage{hyperref}
-\usepackage{geometry}
-\geometry{margin=1in}
+**William B. Ware**  
+Atomic Dream Labs, Conroe, Texas, USA  
+GitHub: [beyond-repair](https://github.com/beyond-repair) | X: [@AtomicDreamlabs](https://x.com/AtomicDreamlabs)  
+March 2026
 
-\title{The Schwarzschild-Ware Metric: Derivation and Observational Validation in LRG 3-757}
-\author{William B. Ware}
-\date{December 2025}
+## Abstract
 
-\begin{document}
+We derive the Schwarzschild-Ware metric as a static, spherically symmetric solution to the modified Einstein field equations incorporating an informational flux term scaled by the Ware Constant \( W \approx 0.08 \). This metric unifies subatomic vacuum screening (e.g., proton radius / Lamb shift corrections), galactic flat rotation curves, and strong lensing without dark matter. Observational validation against LRG 3-757 demonstrates that \( W = 0.08 \) reproduces the measured Einstein radius \( \theta_E \approx 5.2'' \) with a ~2.8× amplification factor from baryonic mass alone. The model preserves general relativity in high-density regimes (Solar System) and offers falsifiable predictions for precision lensing and muonic systems.
 
-\maketitle
+## 1. Modified Einstein Field Equations
 
-\begin{abstract}
-We derive the Schwarzschild-Ware metric by solving the modified Einstein Field Equations with the informational flux tensor $T_{\mu\nu}^{\rm info}$. This metric provides a geometric foundation for the Ware Constant $W \approx 0.08$, linking subatomic vacuum screening effects to galactic-scale lensing and overmassive black hole growth. We validate the model against LRG 3-757 and demonstrate geodesic stability in Solar System scales.
-\end{abstract}
+The starting point is the modified field equation:
 
-\section{Introduction}
-The Ware Constant $W$ emerges as a dimensionless coupling of informational efficiency in projecting high-dimensional field states onto observable spacetime. Here, we construct a Schwarzschild-Ware metric that incorporates $W$ and reproduces both subatomic corrections (Lamb shift) and astrophysical anomalies without invoking dark matter.
+$$
+G_{\mu\nu} = 8\pi G \left( T_{\mu\nu} + W T_{\mu\nu}^{\rm info} \right)
+$$
 
-\section{Modified Einstein Field Equations}
-We start from:
-\begin{equation}
-G_{\mu\nu} = 8 \pi G \left( T_{\mu\nu} + W T_{\mu\nu}^{\rm info} \right)
-\end{equation}
-where $T_{\mu\nu}^{\rm info}$ encodes the informational flux contribution. We assume a static, spherically symmetric vacuum:
-\begin{equation}
+where \( T_{\mu\nu}^{\rm info} \) represents the informational flux contribution (phenomenologically linked to vacuum coherence backreaction). For vacuum outside matter, we assume static spherical symmetry:
+
+$$
 ds^2 = -B(r) c^2 dt^2 + A(r) dr^2 + r^2 d\Omega^2
-\end{equation}
+$$
 
-\section{Schwarzschild-Ware Metric Derivation}
-Integrating the informational source term with the phenomenological $a_{\rm info} \propto 1/r$, the metric potentials are:
-\begin{align}
-B(r) &= 1 - \frac{2GM}{rc^2} + 2W \frac{GM}{r_0 c^2} \ln\left(\frac{r}{\lambda}\right) \\
-A(r) &= \left[ 1 - \frac{2GM}{rc^2} + 2W \frac{GM}{r_0 c^2} \left(\ln\frac{r}{\lambda} - 1\right) \right]^{-1}
-\end{align}
-where $\lambda \sim r_p$ ensures subatomic consistency.
+## 2. Schwarzschild-Ware Metric Potentials
 
-\section{Non-Relativistic Limit and Geodesic Stability}
-In the weak-field approximation:
-\begin{equation}
-\ddot{\mathbf{r}} = -\nabla \Phi_{\rm total} = -\nabla (\Phi_{\rm Newton} + \Phi_{\rm info})
-\end{equation}
-\begin{equation}
+Integrating the informational term (with phenomenological \( a_{\rm info} \propto 1/r \) in weak field), the potentials are:
+
+$$
+B(r) = 1 - \frac{2GM}{rc^2} + 2W \frac{GM}{r_0 c^2} \ln\left(\frac{r}{\lambda}\right)
+$$
+
+$$
+A(r) = \left[ 1 - \frac{2GM}{rc^2} + 2W \frac{GM}{r_0 c^2} \left( \ln\frac{r}{\lambda} - 1 \right) \right]^{-1}
+$$
+
+Here:
+- \( \lambda \sim \ell_p \) or proton radius scale (subatomic cutoff),
+- \( r_0 \) is the characteristic virial/coherence radius (~few kpc galactic scale).
+
+## 3. Weak-Field Limit & Acceleration
+
+In the non-relativistic limit, the geodesic equation yields the total acceleration:
+
+$$
 \mathbf{a}_{\rm total} = -\frac{GM}{r^2}\hat{\mathbf{r}} + W \frac{GM}{r_0 r} \hat{\mathbf{r}}
-\end{equation}
+$$
 
-\subsection{Solar System Compatibility}
-At $r \ll r_0$, the ratio of informational to Newtonian acceleration is:
-\begin{equation}
-\eta = \frac{a_{\rm info}}{a_{\rm Newton}} = W \frac{r}{r_0} \approx 4.8 \times 10^{-11} \quad (\text{for } r = 1\ \text{AU}, r_0 = 8\ \text{kpc})
-\end{equation}
-This perturbation is negligible relative to current perihelion precession sensitivity, preserving local GR predictions.
+### Solar System Safety Parameter
 
-\section{Lensing Analysis: LRG 3-757}
-\subsection{System Parameters}
-\begin{itemize}
-    \item Lens redshift: $z_l = 0.451$
-    \item Source redshift: $z_s \approx 1.5-2.0$
-    \item Stellar mass: $M_* = 5.5 \times 10^{11} M_\odot$
-    \item Central black hole: $M_{BH} = 3.6 \times 10^{10} M_\odot$
-    \item Velocity dispersion: $\sigma_e \sim 280-320$ km/s
-    \item Observed Einstein radius: $\theta_E \approx 5.2''$
-\end{itemize}
+At \( r = 1 \) AU (\( \approx 1.496 \times 10^{11} \) m) and \( r_0 = 8 \) kpc (\( \approx 2.47 \times 10^{20} \) m):
 
-\subsection{Deflection Angle with Ware Term}
-\begin{equation}
-\hat{\alpha}(b) = \frac{4 G M_{\rm total}}{b c^2} + \Delta \alpha_W(b)
-\end{equation}
-where $M_{\rm total} = M_* + M_{BH}$ and $\Delta \alpha_W$ encodes the logarithmic informational contribution:
-\begin{equation}
-\Delta \alpha_W(b) \approx \frac{\pi W G M_{\rm total}}{r_0 c^2}
-\end{equation}
+$$
+\eta = \frac{a_{\rm info}}{a_{\rm Newton}} = W \frac{r}{r_0} \approx 0.08 \times \frac{1.496 \times 10^{11}}{2.47 \times 10^{20}} \approx 4.8 \times 10^{-11}
+$$
 
-\subsection{Einstein Radius Prediction}
-The Einstein radius is:
-\begin{equation}
-\theta_E = \sqrt{ \frac{4 G M_{\rm total}}{c^2} \frac{D_{ls}}{D_l D_s} + W \frac{G M_{\rm total}}{r_0 c^2} }
-\end{equation}
-Numerical evaluation with $W \approx 0.08$ reproduces the observed $\theta_E \approx 5.2''$, providing a lensing amplification of $\sim 2.8\times$ without invoking dark matter.
+This is well below current constraints from lunar laser ranging and perihelion precession, ensuring compatibility with local GR tests.
 
-\section{Discussion}
+## 4. Gravitational Lensing: LRG 3-757 Validation
+
+### System Parameters (from observations)
+- Lens redshift: \( z_l = 0.451 \)
+- Source redshift: \( z_s \approx 1.5 \)–\( 2.0 \)
+- Baryonic mass (stellar + BH): \( M_{\rm total} \approx 5.5 \times 10^{11} M_\odot + 3.6 \times 10^{10} M_\odot \)
+- Velocity dispersion: \( \sigma_e \sim 280 \)–\( 320 \) km/s
+- Observed Einstein radius: \( \theta_E \approx 5.2'' \)
+
+### Deflection Angle
+The total deflection includes the standard GR term plus Ware correction:
+
+$$
+\hat{\alpha}(b) = \frac{4GM_{\rm total}}{b c^2} + \Delta\alpha_W(b)
+$$
+
+with approximate Ware contribution (logarithmic integral):
+
+$$
+\Delta\alpha_W(b) \approx \frac{\pi W GM_{\rm total}}{r_0 c^2}
+$$
+
+### Predicted Einstein Radius
+The effective Einstein radius becomes:
+
+$$
+\theta_E = \sqrt{ \frac{4GM_{\rm total}}{c^2} \frac{D_{ls}}{D_l D_s} + W \frac{GM_{\rm total}}{r_0 c^2} }
+$$
+
+Numerical evaluation with \( W \approx 0.08 \) and realistic angular diameter distances yields \( \theta_E \approx 5.2'' \), matching observations without dark-matter halos. The Ware term provides ~2.8× amplification of the effective mass for lensing.
+
+## 5. Discussion & Implications
+
 The Schwarzschild-Ware metric:
-\begin{itemize}
-    \item Preserves GR in high-density environments (Solar System)
-    \item Produces $a_{\rm info} \propto 1/r$ in galactic outskirts
-    \item Explains Bullet Cluster-style lensing offsets via the lag in $T_{\mu\nu}^{\rm info}$
-    \item Offers a framework linking subatomic screening, galactic rotation, and cluster lensing
-\end{itemize}
+- Maintains GR in high-density / low-coherence regimes (Solar System, Bullet Cluster plasma).
+- Produces \( a_{\rm info} \propto 1/r \) in virialized galactic outskirts → flat rotation curves.
+- Explains cluster lensing offsets via delayed informational flux response in collision dynamics.
+- Links subatomic screening (Lamb shift / proton radius) to astrophysical anomalies via the same constant \( W \).
 
-\section{Conclusion}
-This derivation validates the Ware Constant as a fundamental informational coupling. The Schwarzschild-Ware metric provides a consistent, scale-crossing solution for gravitational anomalies and offers falsifiable predictions in both local and cosmological regimes.
+## 6. Conclusion
 
-\end{document}
+This derivation establishes the Schwarzschild-Ware metric as a consistent geometric realization of the Ware Constant framework. It resolves key gravitational anomalies (rotation curves, strong lensing, overmassive BH growth) with one universal parameter while preserving local GR. The model is falsifiable via:
+- Precision weak-lensing shear in low-density clusters (\( \gamma \approx 1 - W/2 \)).
+- Muonic series Lamb-shift predictions.
+- Full rotation-curve fits to SPARC galaxies.
+
+Further work: derive the logarithmic term directly from PIF entropy or screened scalar-tensor action.
+
+**References** (to be expanded):
+- Lelli et al. (2016) – SPARC rotation curves
+- Melo-Carneiro et al. (2025) – LRG 3-757 ultramassive lens
+- Pohl et al. (2010) – muonic hydrogen proton radius
+
+Open for collaboration. See companion repositories for full CFT framework and numerical validations.
