@@ -106,8 +106,10 @@ This derivation establishes the Schwarzschild-Ware metric as a consistent geomet
 Further work: derive the logarithmic term directly from PIF entropy or screened scalar-tensor action.
 
 **References** (to be expanded):
-- Lelli et al. (2016) – SPARC rotation curves
 - Melo-Carneiro et al. (2025) – LRG 3-757 ultramassive lens
-- Pohl et al. (2010) – muonic hydrogen proton radius
-
+- Pohl et al. (2010). The Size of the Proton. Nature, 466, 213–216.
+- Lelli et al. (2017). One Law to Rule Them All: The Radial Acceleration Relation of Galaxies. ApJ, 836, 152.
+- Clowe et al. (2006). A Direct Empirical Proof of the Existence of Dark Matter. ApJL, 648, L109.
+- Milgrom (1983). A modification of the Newtonian dynamics. ApJ, 270, 365.
+  
 Open for collaboration. See companion repositories for full CFT framework and numerical validations.
