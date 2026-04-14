@@ -55,7 +55,7 @@ W \frac{G M_b}{r_0} = 0.08 \times \frac{1.327 \times 10^{31}}{2.468544 \times 10
 v_\infty = \sqrt{4.30 \times 10^9} \approx 6.56 \times 10^4 \, \mathrm{m/s} = 65.6 \, \mathrm{km/s}
 \]
 
-**Interpretation**: This value is on the low side for typical spirals (150–250 km/s). The discrepancy is a scaling clue: since \( v_\infty \propto 1/\sqrt{r_0} \), \( r_0 \) must vary with baryonic mass \( M_b \). A universal relation \( r_0(M_b) \) (e.g., \( r_0 \propto \sqrt{M_b} \)) is the next priority to make the model predictive.
+**Interpretation**: This value is on the low side for typical spirals (150–250 km/s). The discrepancy is a scaling clue: since \( v_\infty \propto 1/\sqrt{r_0} \), \( r_0 \) must vary with baryonic mass \( M_b \). A universal relation of the form \( r_0 \propto M_b^\alpha \) (with \( \alpha \approx 1/2 \) or \( 1/3 \)) is required to make the model predictive and reduce parameter freedom to a level competitive with MOND or ΛCDM halo models. A global fit to the SPARC database is the next empirical priority.
 
 ## 3. Effect at Solar Radius (8 kpc)
 
@@ -75,7 +75,7 @@ v^2_{\rm total} = \frac{G M_b}{r} + W \frac{G M_b}{r_0} \approx 5.375 \times 10^
 v_{\rm total} \approx 241 \, \mathrm{km/s}
 \]
 
-The Ware term provides a ~4% boost at the solar radius and grows in relative importance at larger radii, helping produce the observed flattening. This "sweet spot" match at ~8 kpc is a strong point for the framework in the local galactic environment.
+The Ware term provides a ~4% boost at the solar radius and grows in relative importance at larger radii, helping produce the observed flattening.
 
 ## 4. Lensing Amplification (Bullet Cluster Style)
 
@@ -106,15 +106,15 @@ The arithmetic checks out. The acceleration law is derived from the Proca action
 
 ## 6. Important Caveats
 
-- \( r_0 \) is currently a characteristic scale. A universal relation \( r_0(M_b) \) (e.g., from coherence volume) is needed for the model to be fully predictive.
-- \( \rho_{\rm norm} \) in the simple lensing model requires a clear physical definition (e.g., relative to critical surface density at the lens redshift).
+- \( r_0 \) is currently a characteristic scale. A universal relation \( r_0(M_b) \) is needed for the model to be fully predictive.
+- \( \rho_{\rm norm} \) in the simple lensing model requires a clear physical definition.
 - Full validation requires galaxy-by-galaxy fits to the SPARC database and detailed lensing convergence maps.
 
 ## 7. Next Steps
 
 - Global fit of \( r_0(M_b) \) across SPARC galaxies to test universality
 - Numerical integration of rotation curves using the full Schwarzschild-Ware metric
-- Quantitative comparison of predicted \( \theta_E \) with strong lens systems (LRG 3-757, Cosmic Horseshoe)
+- Quantitative comparison of predicted \( \theta_E \) with strong lens systems
 
 These checks confirm that \( W \approx 0.08 \) can reproduce the key anomalies with physically motivated scales. The remaining task is tightening the universality of \( r_0 \).
 
