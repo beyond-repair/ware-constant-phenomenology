@@ -6,7 +6,7 @@ April 2026
 
 ## Abstract
 
-We derive the Schwarzschild-Ware metric as the static, spherically symmetric vacuum solution to the modified Einstein field equations incorporating a Proca-type informational vector field scaled by the Ware Constant \( W \approx 0.08 \). This metric unifies subatomic vacuum screening effects (proton radius puzzle, Lamb shift corrections), galactic flat rotation curves, and strong lensing excesses without requiring dark matter particles.  
+We derive the Schwarzschild-Ware metric as the static, spherically symmetric vacuum solution to the modified Einstein field equations incorporating a Proca-type informational vector field scaled by the Ware Constant \( W \approx 0.08 \). This metric unifies subatomic vacuum screening effects (proton radius puzzle, Lamb shift corrections), galactic flat rotation curves, and strong lensing excesses without requiring dark matter particles.
 
 The model preserves general relativity in high-density regimes while generating the required \( 1/r \) acceleration term at large radii. Validation against the ultramassive lens LRG 3-757 reproduces the observed Einstein radius \( \theta_E \approx 5.2'' \) with a baryonic-only amplification factor of ~2.2× using the corrected, dimensionally consistent formula. Solar System compatibility is demonstrated by a perturbation parameter \( \eta \approx 4.8 \times 10^{-11} \), well below current constraints.
 
@@ -38,7 +38,7 @@ B(r) = 1 - \frac{2GM}{r c^2} + \frac{2WGM}{r_0 c^2} \ln\left(\frac{r}{\lambda}\r
 A(r) = \left[ 1 - \frac{2GM}{r c^2} + \frac{2WGM}{r_0 c^2} \ln\left(\frac{r}{\lambda}\right) \right]^{-1}.
 \]
 
-The IR cutoff \( \lambda \) is fixed by the Proca mass term:
+The IR cutoff \( \lambda \) is fixed by the Proca scale:
 
 \[
 \lambda = r_0 \exp(-1/(2W)) \approx r_0 \exp(-6.25).
@@ -48,7 +48,7 @@ For a typical galactic \( r_0 \approx 8 \) kpc, this gives \( \lambda \approx 15
 
 ## 3. Weak-Field Limit and Acceleration
 
-In the non-relativistic weak-field regime, the geodesic equation recovers the acceleration law derived from the Proca action:
+In the non-relativistic weak-field regime, the geodesic equation recovers the acceleration law derived from the Proca action (see PROVISIONAL_DERIVATIONS.tex):
 
 \[
 \mathbf{a}_{\rm total} = -\frac{GM}{r^2}\hat{\mathbf{r}} + W \frac{GM}{r_0 r} \hat{\mathbf{r}}.
