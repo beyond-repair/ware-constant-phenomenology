@@ -32,7 +32,7 @@ Conroe, Texas, USA \\
 \maketitle
 
 \begin{tcolorbox}[colback=yellow!10!white, colframe=yellow!70!black, title=Status Note]
-The acceleration law is now explicitly derived from variation of the Proca Lagrangian. The IR cutoff \(\lambda\) is physically grounded in the Proca scale. The Schwarzschild-Ware metric integration is in the companion file \texttt{Schwarzschild-Ware-metric.tex}.
+The acceleration law is now explicitly derived from variation of the Proca Lagrangian. The IR cutoff \(\lambda\) is physically grounded in the Proca scale. The Schwarzschild-Ware metric integration is in the companion file.
 \end{tcolorbox}
 
 \begin{abstract}
@@ -47,13 +47,13 @@ The informational sector is described by a massive vector field with an effectiv
 \mathcal{L}_{\rm info} = -\frac{1}{4} F_{\mu\nu}^{\rm info} F^{{\rm info} \mu\nu} - \frac{1}{2} m_\phi^2 A_\mu^{\rm info} A^{{\rm info}\mu},
 \]
 
-where the effective mass squared is
+where
 
 \[
 m_\phi^2 = \frac{c^2}{r_0^2 G}.
 \]
 
-This term is interpreted as a **density-dependent coherence scale** (chameleon-like) rather than a literal propagating boson mass.
+This term is interpreted as an **effective density-dependent coherence scale** (chameleon-like mechanism) rather than a literal propagating vector boson mass.
 
 The total action is
 
@@ -81,7 +81,7 @@ where the IR cutoff is physically fixed by the Proca scale:
 \lambda = r_0 \exp\left(-\frac{1}{2W}\right) \approx r_0 \exp(-6.25).
 \]
 
-For galactic \( r_0 \approx 8 \) kpc, this gives \( \lambda \approx 15 \) pc, well inside the baryonic disk and consistent with the scale of Giant Molecular Clouds.
+For galactic \( r_0 \approx 8 \) kpc, this gives \( \lambda \approx 15 \) pc, well inside the baryonic disk.
 
 Substituting into the geodesic equation for slow-moving test particles recovers the radial acceleration law:
 
@@ -103,7 +103,7 @@ consistent with the observed discrepancy of \( \sim 0.075 \pm 0.007 \) fm.
 
 \section{Cosmological Extension: Growth Modification}
 
-In the sub-horizon limit the modified Poisson equation reads
+In the sub-horizon limit the modified Poisson equation, derived from the same Proca action, reads
 
 \[
 -k^2 \phi = 4\pi G a^2 \bar{\rho} \delta \bigl(1 + W S(\rho)\bigr).
@@ -116,6 +116,10 @@ The effective growth factor is
 \]
 
 With \( S(\rho) \approx 1 \) in virialized halos, this provides a 4–8\% boost to late-time structure growth, helping address the \( S_8 \) tension.
+
+\section{Linearized Stability Considerations}
+
+To ensure the Proca + non-minimal coupling sector does not introduce ghosts or tachyonic instabilities, the kinetic matrix for the vector field and its coupling to the metric must have positive eigenvalues, and the longitudinal mode must remain non-tachyonic. Preliminary checks in the weak-field limit show no obvious ghost modes when the effective mass term is treated as density-dependent. Full stability analysis is planned.
 
 \section{Path Forward}
 
