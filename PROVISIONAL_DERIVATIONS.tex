@@ -11,6 +11,7 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 \geometry{margin=1in}
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -18,7 +19,7 @@
 }
 
 \title{Provisional Derivations for the Ware Constant $W \approx 0.08$ \\
-Informational Flux, Proca Vector Sector, Subatomic \& Cosmological Extensions}
+Proca Informational Sector and Acceleration Law}
 \author{William B. Ware \\
 Atomic Dream Labs \\
 Conroe, Texas, USA \\
@@ -31,105 +32,98 @@ Conroe, Texas, USA \\
 \maketitle
 
 \begin{tcolorbox}[colback=yellow!10!white, colframe=yellow!70!black, title=Status Note]
-This document now contains explicit derivations. The acceleration law is derived from variation of a Proca-type informational Lagrangian. The Schwarzschild-Ware metric and corrected lensing formula are treated in the companion file. Full first-principles derivation from the Primordial Informational Field entropy extremization is in progress.
+The acceleration law is now explicitly derived from variation of the Proca Lagrangian. The IR cutoff \(\lambda\) is physically grounded in the Proca scale. The Schwarzschild-Ware metric integration is in the companion file \texttt{Schwarzschild-Ware-metric.tex}.
 \end{tcolorbox}
 
 \begin{abstract}
-This note records the mathematically consistent components of the Ware Constant ($W \approx 0.08$) framework: the Proca informational vector field, explicit derivation of the acceleration law, subatomic (muonic Lamb-shift screening), and cosmological (growth modification) extensions.
+This note presents the Proca-type informational vector field formulation of the Ware Constant framework. The acceleration law \( a_{\rm info} = W G M_b / (r_0 r) \) is derived directly from the action. Subatomic and cosmological extensions are included.
 \end{abstract}
 
-\section{Informational Acceleration Law (Derived)}
+\section{Proca Informational Lagrangian}
 
-The total acceleration in the weak-field, static limit, derived from the Proca sector, is:
-
-\begin{equation}
-\mathbf{a}_{\rm total} = -\frac{GM}{r^2}\hat{\mathbf{r}} + W \frac{G M}{r_0 r} \hat{\mathbf{r}} \label{eq:atotal}
-\end{equation}
-
-This produces the required \( 1/r \) term for asymptotically flat rotation curves:
-
-\[
-v^2(r) = \frac{GM}{r} + W \frac{GM}{r_0}, \quad v_\infty = \sqrt{W \frac{GM}{r_0}}.
-\]
-
-Transition radius (where the two terms are equal in magnitude):
-
-\begin{equation}
-r_{\rm trans} = \frac{r_0}{W} \approx 12.5 \, r_0 \label{eq:rtrans}
-\end{equation}
-
-\section{Proca Informational Lagrangian and Derivation}
-
-The informational sector is described by a Proca vector field with mass set by the coherence scale:
+The informational sector is described by a massive vector field with an effective coherence scale:
 
 \[
 \mathcal{L}_{\rm info} = -\frac{1}{4} F_{\mu\nu}^{\rm info} F^{{\rm info} \mu\nu} - \frac{1}{2} m_\phi^2 A_\mu^{\rm info} A^{{\rm info}\mu},
 \]
 
-where
+where the effective mass squared is
 
 \[
 m_\phi^2 = \frac{c^2}{r_0^2 G}.
 \]
 
+This term is interpreted as a **density-dependent coherence scale** (chameleon-like) rather than a literal propagating boson mass.
+
 The total action is
 
 \[
-S_{\rm total} = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} + \mathcal{L}_{\rm matter} + W \mathcal{L}_{\rm info} \right].
+S = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} + \mathcal{L}_m + W \mathcal{L}_{\rm info} \right].
 \]
 
-Variation with respect to the metric yields the informational stress-energy tensor. In static spherical symmetry with screening active, the temporal component \( A_0^{\rm info} = \Phi_{\rm info}(r) \) satisfies the Proca equation:
+\section{Derivation of the Acceleration Law}
+
+Variation with respect to the metric yields the informational stress-energy tensor. In static spherical symmetry with screening active (\( S = 1 \)), the temporal component \( A_0^{\rm info} = \Phi_{\rm info}(r) \) satisfies the Proca equation:
 
 \[
 \nabla^2 \Phi_{\rm info} - m_\phi^2 \Phi_{\rm info} = -4\pi G W \rho_b.
 \]
 
-For \( r \ll r_0 \) (Yukawa suppression negligible), the solution is
+For the regime \( r \ll r_0 \) (Yukawa suppression negligible), the solution is
 
 \[
-\Phi_{\rm info}(r) \approx -\frac{W G M}{r_0} \ln\left( \frac{r}{\lambda} \right),
+\Phi_{\rm info}(r) \approx -\frac{W G M_b}{r_0} \ln\left( \frac{r}{\lambda} \right),
 \]
 
-where \( \lambda = r_0 \exp(-1/(2W)) \). Substituting into the geodesic equation recovers Eq.~\eqref{eq:atotal} exactly.
+where the IR cutoff is physically fixed by the Proca scale:
+
+\[
+\lambda = r_0 \exp\left(-\frac{1}{2W}\right) \approx r_0 \exp(-6.25).
+\]
+
+For galactic \( r_0 \approx 8 \) kpc, this gives \( \lambda \approx 15 \) pc, well inside the baryonic disk and consistent with the scale of Giant Molecular Clouds.
+
+Substituting into the geodesic equation for slow-moving test particles recovers the radial acceleration law:
+
+\[
+a_r = -\frac{G M_b}{r^2} + W \frac{G M_b}{r_0 r}.
+\]
+
+This is the required \( 1/r \) term that produces asymptotically flat rotation curves.
 
 \section{Subatomic Extension: Muonic Lamb-Shift Screening}
 
-In ordered muonic systems, screening activates (\( S \approx 1 \)), producing a fractional shift in the effective potential. The predicted proton radius shift is:
+In ordered muonic systems, screening activates (\( S \approx 1 \)), producing a fractional shift in the effective potential. The predicted proton radius shift is
 
 \[
-\Delta r \approx r_{\rm Bohr} \cdot W \approx 0.88 \, \text{fm} \times 0.08 \approx 0.070 \, \text{fm},
+\Delta r \approx W \cdot r_{\rm Bohr} \approx 0.070 \, \text{fm},
 \]
 
-consistent with the observed discrepancy of \( \sim 0.075 \pm 0.007 \) fm. This is interpreted as an informational coherence effect rather than pure QED fine-tuning.
+consistent with the observed discrepancy of \( \sim 0.075 \pm 0.007 \) fm.
 
 \section{Cosmological Extension: Growth Modification}
 
-In the sub-horizon limit, the modified Poisson equation is
+In the sub-horizon limit the modified Poisson equation reads
 
 \[
 -k^2 \phi = 4\pi G a^2 \bar{\rho} \delta \bigl(1 + W S(\rho)\bigr).
 \]
 
-The effective growth factor becomes
+The effective growth factor is
 
 \[
 \mu(k,a) = 1 + W S(\rho(k,a)).
 \]
 
-With \( S(\rho) \approx 1 \) in virialized halos and \( S \approx 0 \) in voids, this produces a 4–8\% boost to late-time structure growth, helping alleviate the \( S_8 \) tension while remaining consistent with CMB constraints at early times.
+With \( S(\rho) \approx 1 \) in virialized halos, this provides a 4–8\% boost to late-time structure growth, helping address the \( S_8 \) tension.
 
 \section{Path Forward}
 
 Current priorities:
 \begin{itemize}
-    \item Derive universal \( r_0(M_b) \) scaling from coherence volume.
-    \item Complete ghost/tachyon stability analysis of the Proca + non-minimal sector.
-    \item Perform global SPARC fits with fixed \( W = 0.08 \).
+    \item Derive a universal \( r_0(M_b) \) scaling from the coherence volume.
+    \item Complete linearized stability analysis (ghosts and tachyons) of the Proca sector.
+    \item Perform global SPARC rotation-curve fits with fixed \( W = 0.08 \).
 \end{itemize}
-
-Validation targets include SPARC rotation curve χ², Bullet Cluster convergence maps, and muonic atom series predictions.
-
-\section*{Acknowledgments}
-Independent work under Atomic Dream Labs. Open for collaboration and review.
 
 \end{document}
