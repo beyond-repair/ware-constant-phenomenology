@@ -86,14 +86,14 @@ The total deflection includes the standard GR term plus the Ware logarithmic con
 \boxed{\theta_E = \sqrt{ \frac{4 G M}{c^2} \frac{D_{ls}}{D_l D_s} \left(1 + \frac{\pi W D_l}{4 r_0}\right) }}
 \]
 
-Numerical evaluation with realistic angular diameter distances and \( W = 0.08 \) reproduces \( \theta_E \approx 5.2'' \), corresponding to a baryonic-only lensing amplification of ~2.2× (consistent in magnitude with observed strong-lensing excesses).
+Numerical evaluation with realistic angular diameter distances and \( W = 0.08 \) reproduces \( \theta_E \approx 5.2'' \), corresponding to a baryonic-only lensing amplification of ~2.2×.
 
 ## 5. Discussion & Implications
 
 The Schwarzschild-Ware metric:
 - Maintains general relativity in high-density regimes via screening.
-- Generates the required \( 1/r \) acceleration in virialized galactic outskirts, producing flat rotation curves.
-- Explains cluster-scale lensing offsets through differential response of the informational flux during mergers.
+- Generates the required \( 1/r \) acceleration in virialized galactic outskirts.
+- Explains cluster-scale lensing excesses through differential response of the informational flux during mergers.
 - Provides a single-parameter link between subatomic screening (muonic proton radius) and astrophysical anomalies.
 
 ## 6. Conclusion
