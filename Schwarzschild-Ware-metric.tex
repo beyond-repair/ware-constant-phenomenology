@@ -35,7 +35,7 @@ Conroe, Texas, USA \\
 \maketitle
 
 \begin{abstract}
-We derive the Schwarzschild-Ware metric as the static, spherically symmetric vacuum solution to the modified Einstein field equations incorporating a Proca-type informational vector field scaled by the Ware Constant \( W \approx 0.08 \). The metric unifies subatomic vacuum screening effects with galactic and cluster-scale gravitational anomalies without dark matter. It preserves general relativity in high-density regimes while producing the required \( 1/r \) acceleration term at large radii. We validate the framework against strong lensing systems (e.g., LRG 3-757) using a dimensionally consistent Einstein radius formula and demonstrate Solar System compatibility via a negligible perturbation parameter \( \eta \approx 4.8 \times 10^{-11} \).
+We derive the Schwarzschild-Ware metric as the static, spherically symmetric vacuum solution to the modified Einstein field equations incorporating a Proca-type informational vector field scaled by the Ware Constant \( W \approx 0.08 \). The metric unifies subatomic vacuum screening effects with galactic and cluster-scale gravitational anomalies without dark matter. It preserves general relativity in high-density regimes while producing the required \( 1/r \) acceleration term at large radii. Validation against strong lensing systems uses a dimensionally consistent Einstein radius formula. Solar System compatibility is demonstrated via a negligible perturbation parameter \( \eta \approx 4.8 \times 10^{-11} \).
 \end{abstract}
 
 \keywords{modified gravity, screened metrics, Ware Constant, gravitational lensing, dark matter alternatives}
@@ -67,7 +67,7 @@ B(r) &= 1 - \frac{2GM}{r c^2} + \frac{2WGM}{r_0 c^2} \ln\left(\frac{r}{\lambda}\
 A(r) &= \left[ 1 - \frac{2GM}{r c^2} + \frac{2WGM}{r_0 c^2} \ln\left(\frac{r}{\lambda}\right) \right]^{-1}. \label{eq:Apot}
 \end{align}
 
-The IR cutoff is physically fixed by the Proca mass:
+The IR cutoff is physically fixed by the Proca scale:
 
 \[
 \lambda = r_0 \exp(-1/(2W)) \approx r_0 \exp(-6.25).
@@ -77,7 +77,7 @@ For galactic \( r_0 \approx 8 \) kpc this gives \( \lambda \approx 15 \) pc, wel
 
 \section{Weak-Field Limit and Acceleration}
 
-In the non-relativistic weak-field regime, the geodesic equation recovers the derived acceleration law:
+In the non-relativistic weak-field regime, the geodesic equation recovers the derived acceleration law (see PROVISIONAL_DERIVATIONS.tex):
 
 \begin{equation}
 \mathbf{a}_{\rm total} = -\frac{GM}{r^2}\hat{\mathbf{r}} + W \frac{GM}{r_0 r} \hat{\mathbf{r}}
@@ -114,7 +114,7 @@ The dimensionally consistent Einstein radius in the thin-lens approximation is:
 \boxed{\theta_E = \sqrt{ \frac{4 G M}{c^2} \frac{D_{ls}}{D_l D_s} \left(1 + \frac{\pi W D_l}{4 r_0}\right) }}.
 \]
 
-For typical cluster parameters the Ware boost factor is \(\approx 2.2\), consistent with observed lensing amplification from baryonic mass alone.
+Note that \( r_0 \) is expected to scale with system mass \( M_b \); the value used here is illustrative. For typical cluster parameters the Ware boost factor is \(\approx 2.2\), consistent with observed lensing amplification from baryonic mass alone.
 
 \section{Discussion}
 
@@ -135,7 +135,7 @@ Falsifiable predictions include:
     \item Muonic atom Lamb-shift series consistent with \( W \)-scaled shifts.
 \end{itemize}
 
-Future work will derive the logarithmic term directly from the full screened action and perform global \( r_0(M_b) \) scaling tests.
+Future work will derive a universal \( r_0(M_b) \) scaling and complete stability analysis of the Proca sector.
 
 \section*{Acknowledgments}
 Independent research under Atomic Dream Labs. Open to collaboration and peer review.
