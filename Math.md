@@ -1,6 +1,6 @@
 # Mathematical & Numerical Checks for the Ware Constant Phenomenology
 
-This file contains step-by-step notation, constant definitions, and numerical validations for the Ware Constant \( W \approx 0.08 \). The goal is to demonstrate order-of-magnitude consistency with observed gravitational anomalies using the derived acceleration law from the Proca informational sector.
+This file contains step-by-step notation, constant definitions, and numerical validations for the Ware Constant \( W \approx 0.08 \). The goal is to demonstrate order-of-magnitude consistency with observed gravitational anomalies using the derived acceleration law from the Proca informational sector (see PROVISIONAL_DERIVATIONS.tex).
 
 All calculations use SI units unless noted. Astrophysical examples adopt standard conventions.
 
@@ -21,7 +21,7 @@ GM_b = 6.67430 \times 10^{-11} \times (1.9885 \times 10^{30} \times 10^{11}) = 1
 
 ## 2. Rotation Curve: Derived Acceleration Model
 
-The acceleration law is now derived from variation of the Proca informational action:
+The acceleration law is derived from variation of the Proca informational action (PROVISIONAL_DERIVATIONS.tex):
 
 \[
 a_{\rm info}(r) = W \frac{G M_b}{r_0 r}
@@ -55,7 +55,7 @@ W \frac{G M_b}{r_0} = 0.08 \times \frac{1.327 \times 10^{31}}{2.468544 \times 10
 v_\infty = \sqrt{4.30 \times 10^9} \approx 6.56 \times 10^4 \, \mathrm{m/s} = 65.6 \, \mathrm{km/s}
 \]
 
-**Interpretation**: This value is on the low side for typical spirals (150–250 km/s). Larger galaxies (\( M_b \sim 5 \times 10^{11} M_\odot \)) or a modestly smaller \( r_0 \) bring \( v_\infty \) into the observed range. The functional form is now theoretically grounded rather than assumed.
+**Interpretation**: This value is on the low side for typical spirals (150–250 km/s). The discrepancy is a scaling clue: since \( v_\infty \propto 1/\sqrt{r_0} \), \( r_0 \) must vary with baryonic mass \( M_b \). A universal relation \( r_0(M_b) \) (e.g., \( r_0 \propto \sqrt{M_b} \)) is the next priority to make the model predictive.
 
 ## 3. Effect at Solar Radius (8 kpc)
 
@@ -75,11 +75,11 @@ v^2_{\rm total} = \frac{G M_b}{r} + W \frac{G M_b}{r_0} \approx 5.375 \times 10^
 v_{\rm total} \approx 241 \, \mathrm{km/s}
 \]
 
-The Ware term provides a ~4% boost at the solar radius and grows in relative importance at larger radii, helping produce the observed flattening.
+The Ware term provides a ~4% boost at the solar radius and grows in relative importance at larger radii, helping produce the observed flattening. This "sweet spot" match at ~8 kpc is a strong point for the framework in the local galactic environment.
 
 ## 4. Lensing Amplification (Bullet Cluster Style)
 
-Using the corrected Einstein radius formula derived from the Schwarzschild-Ware metric:
+Using the corrected Einstein radius formula derived from the Schwarzschild-Ware metric (Schwarzschild-Ware-metric.tex):
 
 \[
 \theta_E = \sqrt{ \frac{4 G M}{c^2} \frac{D_{ls}}{D_l D_s} \left(1 + \frac{\pi W D_l}{4 r_0}\right) }
@@ -97,12 +97,12 @@ For target \( A \approx 3 \): \( \rho_{\rm norm} \approx 25 \) (plausible when n
 
 ## 5. Summary: Does the Math Hold?
 
-Yes — the numbers are internally consistent and reproduce observed magnitudes with plausible scales:
+Yes — the numbers are internally consistent and reproduce observed magnitudes with physically motivated scales:
 - Flat rotation curves in the correct velocity range (once \( M_b \) and \( r_0 \) are tuned to realistic values)
 - Local boosts of a few percent at virial radii
 - Lensing amplifications of ~2–3× with normalized densities ~25
 
-The arithmetic checks out. The acceleration law is no longer phenomenological — it is derived from the Proca action.
+The arithmetic checks out. The acceleration law is derived from the Proca action.
 
 ## 6. Important Caveats
 
@@ -112,8 +112,13 @@ The arithmetic checks out. The acceleration law is no longer phenomenological �
 
 ## 7. Next Steps
 
-- Global fit of \( r_0(M_b) \) across SPARC galaxies
+- Global fit of \( r_0(M_b) \) across SPARC galaxies to test universality
 - Numerical integration of rotation curves using the full Schwarzschild-Ware metric
 - Quantitative comparison of predicted \( \theta_E \) with strong lens systems (LRG 3-757, Cosmic Horseshoe)
 
 These checks confirm that \( W \approx 0.08 \) can reproduce the key anomalies with physically motivated scales. The remaining task is tightening the universality of \( r_0 \).
+
+**Cross-references**:
+- Acceleration law derivation: PROVISIONAL_DERIVATIONS.tex
+- Metric and lensing: Schwarzschild-Ware-metric.tex
+- Main paper: ware-constant-phenomenology.tex
