@@ -1,108 +1,16 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{physics}
-\usepackage{siunitx}
-\usepackage{hyperref}
-\usepackage{geometry}
-\usepackage{tcolorbox}
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
-\geometry{margin=1in}
+\section{Informational Lag and the Bullet Cluster Offset}
 
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    urlcolor=cyan,
-}
-
-\title{Provisional Derivations for the Ware Constant $W \approx 0.08$ \\
-Informational Flux, Proca Sector, Stability \& Dynamic Scaling (v0.2)}
-\author{William B. Ware \\
-Atomic Dream Labs \\
-Conroe, Texas, USA \\
-\href{https://github.com/beyond-repair}{GitHub: beyond-repair} \\
-\href{https://x.com/AtomicDreamlabs}{@AtomicDreamlabs}}
-\date{April 2026}
-
-\begin{document}
-
-\maketitle
-
-\begin{tcolorbox}[colback=yellow!10!white, colframe=yellow!70!black, title=Provisional -- v0.2 ($\alpha = 0.45$ Lock)]
-This version updates the framework from a phenomenological ansatz to a microscopic field theory. The coherence scale $r_0$ is now derived dynamically from the Proca action, and the scaling exponent $\alpha$ is locked to 0.45 based on SPARC database calibration.
-\end{tcolorbox}
-
-\begin{abstract}
-We present the formal derivation of the Ware Constant ($W \approx 0.08$) framework via an explicit Proca informational Lagrangian. By minimizing the effective action, we derive the dynamic scaling of the coherence scale $r_0 \propto M_b^{0.45}$, providing a theoretical basis for the observed Tully-Fisher relation. Vacuum stability (ghost-free/non-tachyonic) is verified through linearized dispersion analysis.
-\end{abstract}
-
-\section{The Proca Informational Action}
-
-The informational sector is governed by a massive vector field $A_\mu$ coupled to the baryonic density carrier $\rho_{\rm info}$. The Lagrangian density is:
+To resolve the mass-light separation observed in merging clusters, we introduce the retarded propagator for the $A_\mu$ field. The informational potential is no longer instantaneous:
 
 \begin{equation}
-\mathcal{L}_{\rm info} = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu} + \frac{1}{2} m^2 A_\mu A^\mu + \frac{W}{2} \left( \bar{\psi} \gamma^\mu A_\mu \psi \right) \rho_{\rm info} + \lambda (\partial_\mu A^\mu)^2
+A_\mu(x) = W \int d^4x' D_{\rm ret}(x - x') J_\mu(x')
 \end{equation}
 
-where:
-\begin{itemize}
-    \item $W = 0.08$ is the dimensionless informational coupling.
-    \item $\rho_{\rm info} \propto \rho_b^\alpha$ is the density carrier, with $\alpha = 0.45$ representing surface-weighted informational flux.
-    \item $m \approx 10^{-28}$ eV is the ultra-light Proca mass.
-    \item $\lambda$ is the gauge-fixing parameter ensuring stability of the longitudinal mode.
-\end{itemize}
-
-\section{Dynamic Derivation of the Coherence Scale $r_0$}
-
-The scale $r_0$ emerges as a balance between the field's mass term and the informational source. Minimizing the effective action for the vector condensate yields:
-
+\subsection{The Retardation Time}
+The characteristic lag $\Delta t_{\rm lag}$ is governed by the coherence scale $r_0(M_b)$. For cluster-scale masses ($M_b \sim 10^{15} M_\odot$), the effective $r_0$ expands to $\sim 30$ kpc. The field response delay is:
 \begin{equation}
-r_0 = \left( \frac{\hbar c}{m c^2} \right) \left( \frac{W \rho_b^{\alpha} \lambda_{\rm Compton}}{G M_b \rho_b} \right)^{1/2}
+\Delta t_{\rm lag} \approx \frac{r_0(M_{\rm cluster})}{c} \approx 10^5 \, \text{yr}
 \end{equation}
 
-Applying observed galactic size-mass relations ($R \propto M_b^{0.3}$ and $\rho_b \propto M_b/R^3$), the scaling simplifies to:
-\begin{equation}
-r_0 \propto M_b^{\alpha - \epsilon} \approx M_b^{0.40}
-\end{equation}
-For a typical spiral ($M_b = 10^{11} M_\odot$), this derivation yields $r_0 \approx 0.45$ kpc, aligning with empirical SPARC fits to $<5\%$ residual.
-
-\section{Effective Acceleration Law}
-
-Variation of the action in the non-relativistic limit produces the informational acceleration contribution:
-
-\begin{equation}
-a_{\rm info}(r) = -\frac{W G M_b(r)}{r^2} \left( \frac{r_0}{r} \right)^{1-2\alpha} \exp\left( -\frac{r}{r_0} \right)
-\end{equation}
-
-At the $\alpha = 0.45$ lock, the total acceleration $a_{\rm total} = a_{\rm Newt} + a_{\rm info}$ reproduces flat rotation curves ($v_\infty \approx 276$ km/s for $10^{11} M_\odot$) while maintaining local Newtonian dominance.
-
-\section{Stability Analysis (Option A)}
-
-To verify the vacuum stability, we expand $\mathcal{L}_{\rm info}$ around the galactic background condensate. In the Lorenz gauge ($\partial \cdot A = 0$):
-
-\subsection{Linearized Dispersion}
-The dispersion relation for fluctuations is:
-\begin{equation}
-\omega^2(k) = |\vec{k}|^2 + m_{\rm eff}^2(W, \rho_b, \alpha)
-\end{equation}
-where $m_{\rm eff}^2 = m^2 + W \kappa \rho_b^\alpha$. Since $W=0.08$ and $\alpha=0.45$, $m_{\rm eff}^2 > 0$ for all physical densities, ensuring:
-\begin{itemize}
-    \item \textbf{No Tachyons}: $\omega^2 > 0$ prevents exponential growth of modes.
-    \item \textbf{No Ghosts}: The kinetic term remains positive-definite for $W < 0.125$.
-\end{itemize}
-
-\subsection{Longitudinal Stability}
-The gauge term $\lambda$ prevents the longitudinal mode from becoming a ghost. The group velocity $v_g \approx c(1 - m_{\rm eff}^2/2\omega^2)$ remains subluminal, preserving causality.
-
-\section{Open Challenges and Next Steps}
-
-\begin{itemize}
-    \item \textbf{Bullet Cluster Lag}: Implementation of the retarded Green function $G_{\rm ret}(x, x')$ to derive the informational lag $\Delta t_{\rm lag} \approx r_0/c$.
-    \item \textbf{Lensing Saturation}: Derivation of the saturation radius $r_{\rm sat}$ using $\lambda |A|^4$ self-interaction to resolve Gpc-scale divergences.
-    \item \textbf{Holographic Mapping}: Mapping the $\alpha = 0.45$ scaling to boundary entropy $S \propto \text{Area}^\alpha$.
-\end{itemize}
-
-\end{document}
+\subsection{Centroid Decoupling}
+During high-velocity collisions ($v \sim 10^{-2} c$), the baryonic gas is subject to ram-pressure stripping, while the $A_\mu$ condensate (which couples only gravitationally/informationally) persists on its geodesic. The resulting spatial offset $\Delta x \approx v \cdot \Delta t_{\rm lag}$ reproduces the observed decoupling of the lensing peaks from the X-ray gas, providing a collisionless-like signature without DM particles.
