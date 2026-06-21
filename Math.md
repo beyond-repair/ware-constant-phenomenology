@@ -1,5 +1,3 @@
-This updated version of `math.md` (v0.3.1) integrates the surgical refinements requested, ensuring a clear distinction between empirical evidence and derivation requirements while explicitly flagging current stability constraints.
-
 ---
 
 # Mathematical & Numerical Framework: Ware Constant Phenomenology (v0.3.1)
