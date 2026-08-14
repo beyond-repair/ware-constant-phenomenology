@@ -2,22 +2,21 @@
 """
 killgate_verification.py
 ------------------------
-Single-parameter-set verification of the four structural kill-gates
+Single-parameter-set verification of the structural kill-gates
 using the locked phenomenological anchor
 
     W_star = 0.08
 
 All numerical inputs are stated explicitly. No hidden fitting.
 This script does **not** claim observational confirmation; it only
-shows that the analytic expressions are internally consistent and
-recover the published order-of-magnitude targets when the locked
-parameter set is inserted.
+evaluates the analytic expressions under the locked parameter set
+and reports where they are consistent or where they fail.
 
 Kill-gates covered
 ------------------
 1. Muonic proton-radius shift (order-of-magnitude)
 2. Asymptotic rotation velocity (SPARC / BTFR style)
-3. LRG 3-757 Einstein-radius amplification (approximate)
+3. LRG 3-757 Einstein-radius amplification (formula audit)
 4. Solar-system PPN-style screening parameter η
 """
 
@@ -52,12 +51,11 @@ def r0(Mb: float) -> float:
 def muonic_delta_r(W: float = W_STAR) -> float:
     """
     Extremely simplified estimate:
-        Δr ≈ <r>_Bohr_scale * W
+        Δr ≈ r_scale * W
     The numerical prefactor is chosen so that W=0.08 yields ~0.07 fm,
     matching the order of the published target. This is **not** a
     full QED calculation.
     """
-    # Effective scale that produces the target magnitude
     r_scale_fm = 0.875          # fm (rough proton-radius scale)
     return r_scale_fm * W       # fm
 
@@ -76,7 +74,7 @@ def v_infty(Mb: float, W: float = W_STAR) -> float:
 
 
 # ---------------------------------------------------------------------------
-# 3. LRG 3-757 style amplification (approximate analytic form)
+# 3. Lensing amplification (formula audit)
 # ---------------------------------------------------------------------------
 def lensing_amplification(
     Dl_m: float,
@@ -84,12 +82,16 @@ def lensing_amplification(
     W: float = W_STAR,
 ) -> float:
     """
-    Approximate multiplicative factor on the Einstein radius
-    from the phenomenology expression:
+    Evaluate the approximate multiplicative factor that appears in the
+    phenomenology notes:
 
-        θ_E ≈ θ_E,GR * (1 + π W Dl / (4 r_0))
+        factor = 1 + π W Dl / (4 r_0)
 
-    Returns the factor (1 + …).
+    With cosmological Dl (Gpc) and galactic r_0 (kpc) this expression
+    yields factors ≫ 1. It cannot produce the O(1) amplification
+    (~2.2) quoted for LRG 3-757 without a different normalisation or
+    an additional saturation mechanism that is not present in the
+    simple formula. The function is retained only for audit purposes.
     """
     return 1.0 + np.pi * W * Dl_m / (4.0 * r0_m)
 
@@ -99,10 +101,9 @@ def lensing_amplification(
 # ---------------------------------------------------------------------------
 def eta_solar(r_m: float = 1.496e11, W: float = W_STAR) -> float:
     """
-    η ≈ W * (r / r_0) evaluated at 1 AU with a galactic r_0.
-    This is a rough screening diagnostic, not a full PPN calculation.
+    η ≈ W * (r / r_0) evaluated at 1 AU with the reference galactic r_0.
+    Rough screening diagnostic, not a full PPN calculation.
     """
-    # Use the reference galactic r_0
     return W * (r_m / R0_REF)
 
 
@@ -130,31 +131,35 @@ def main():
     print(f"   Typical SPARC late-type range : 100–250 km/s")
     print(f"   Status       : lies inside observed range for the locked parameters")
 
-    # 3. LRG 3-757 approximate amplification
-    # Approximate angular-diameter distance to z≈0.45 lens (rough)
-    Dl_m = 1.2e9 * PC          # ~1.2 Gpc in metres (order-of-magnitude)
-    r0_lens = r0(5.86e11 * M_SUN)   # baryonic mass from phenomenology note
+    # 3. Lensing — audit only
+    Dl_m = 1.2e9 * PC          # ~1.2 Gpc
+    r0_lens = r0(5.86e11 * M_SUN)
     amp = lensing_amplification(Dl_m, r0_lens)
-    print(f"\n3. LRG 3-757 style amplification factor")
+    print(f"\n3. LRG 3-757 style amplification (formula audit)")
     print(f"   Dl (approx)  = {Dl_m/PC/1e6:.1f} Mpc")
     print(f"   r_0 (lens)   = {r0_lens/KPC:.2f} kpc")
-    print(f"   factor       = {amp:.3f}")
+    print(f"   factor       = {amp:.3e}")
     print(f"   Phenomenology target : ~2.2")
-    print(f"   Status       : analytic form evaluated; full ray-trace not performed")
+    print(f"   Status       : FAIL — simple formula is dimensionally")
+    print(f"                  inconsistent with O(1) amplification at")
+    print(f"                  cosmological distances. Requires")
+    print(f"                  reformulation or explicit saturation.")
 
     # 4. Solar-system η
     eta = eta_solar()
     print(f"\n4. Solar-system screening diagnostic η")
     print(f"   η (1 AU)     = {eta:.3e}")
     print(f"   Target order : ~5e-11")
-    print(f"   Status       : order-of-magnitude match with locked parameters")
+    print(f"   Status       : within ~20× of target order; acceptable")
+    print(f"                  for a rough diagnostic")
 
     print("\n" + "=" * 60)
-    print("Notes")
-    print("  - All results use the single locked value W_star = 0.08.")
+    print("Summary")
+    print("  - Gates 1, 2, 4 are internally consistent under W_star=0.08.")
+    print("  - Gate 3 (lensing) exposes a formula-level inconsistency")
+    print("    that must be resolved before any strong claim is made.")
     print("  - No M2 scaling is applied in this script.")
-    print("  - Full observational fits (SPARC χ², detailed lens modelling)")
-    print("    remain future work and are not claimed here.")
+    print("  - Full SPARC χ² or ray-traced lens modelling is future work.")
     print("=" * 60)
 
 
