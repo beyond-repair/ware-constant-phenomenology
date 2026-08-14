@@ -1,54 +1,50 @@
 ---
-# Mathematical & Numerical Framework: Ware Constant Phenomenology (v0.3.6)
+# Mathematical & Numerical Framework: Ware Constant Phenomenology (v0.3.7)
 
 **Last update:** 2026-08-14  
-**W_star status:** Entropic candidate \(W_\star=1/(4\pi)\approx0.0796\) under axioms E1–E4  
-**SPARC status:** Macro verified; local median χ²_red ~12
+**W_star:** \(1/(4\pi)\) at tree level under canonical boundary matching (see WSTAR_ACTION_DERIVATION.md)  
+**SPARC:** Macro verified; local median χ²_red ~11.9
 
 ## 1. Core Invariant
 
 \[
-W_\star = \frac{1}{4\pi} \approx 0.079577
+W_\star = \frac{1}{4\pi}\approx 0.079577
 \]
 
-Derived under solid-angle / holographic-screen axioms (see WSTAR_ENTROPIC_DERIVATION.md). Rounded value 0.08 acceptable for galactic work (<1% difference). Option A remains in force (M2 is geometric only).
+Origin: monopole spherical-harmonic normalization on a 2-sphere screen, with canonical matching \(c_\star=1\). E2–E4 reduced to matching conditions; E1 (existence of screen) remains an infrared input. Bulk confirmation of \(c_\star=1\) open.
 
-## 2. Macro Scaling (Verified)
+## 2. Macro Scaling — Verified
 
 \[
-r_0(M_b) = 0.45\,\mathrm{kpc}\,(M_b/10^{11}M_\odot)^{0.40}
+r_0(M_b)=0.45\,\mathrm{kpc}\,(M_b/10^{11}M_\odot)^{0.40}
 \]
 
 ## 3. Lensing
 
-Multiplicative boost with soft saturation:
-\[
-\delta_{\rm raw}=\frac{\pi W D_l}{4 r_0},\quad
-\delta_{\rm eff}=\frac{\delta_{\rm raw}}{1+\delta_{\rm raw}/\delta_{\rm sat}},\quad
-{\rm factor}=1+\delta_{\rm eff}
-\]
-With \(\delta_{\rm sat}=1.2\) the asymptotic factor is 2.2 (recovered). Additive galactic-potential deflection is too small at Gpc scales and is not used.
+Multiplicative boost + soft saturation recovers factor 2.2.  
+Geodesic integration of additive Φ_W at \(b=R_E\) yields only O(0.1) corrections — **cannot** produce 2.2. Therefore δ_sat for the multiplicative formula remains phenomenological (mapped to ξ); it is not the additive geodesic δ.
 
 ## 4. Local Rotation Curves
 
-Median χ²_red ~12 with per-galaxy Υ, β, γ (macro frozen). Improved; not closed.
+Median χ²_red ~11.9 (additive Ware + soft radial). RAR-style interpolating law with \(a_0=WGM/r_0^2\) fails badly and is rejected.
 
-## 5. Consistency Ledger
+## 5. Ledger
 
 | Component | Status |
 |-----------|--------|
-| \(W_\star=1/(4\pi)\) | Entropic derivation under E1–E4 |
-| Macro \(r_0(M_b)\) | Verified |
-| Local SPARC χ² | Median ~12 (open toward O(1)) |
-| Lensing factor ~2.2 | Recovered (multiplicative + saturation) |
-| Bridge axioms → Proca action | Open |
+| \(W_\star=1/(4\pi)\) | Tree-level matching from boundary effective action |
+| Macro \(r_0\) | Verified |
+| Local SPARC | Median ~11.9 (open toward O(1)) |
+| Lensing factor 2.2 | Multiplicative formula; δ_sat phenomenological |
+| Bulk proof of \(c_\star=1\) | Open |
 
 ## 6. Priority Open Problems
 
-1. Elevate E1–E4 from axioms to theorems of the Proca+Einstein action.
-2. Local profile structure for median χ²_red → O(1).
-3. First-principles origin of δ_sat (mapped to ξ; geometric_prefactor).
+1. Bulk Proca → boundary reduction confirming \(c_\star=1\).
+2. Local law for median χ²_red → O(1).
+3. Projection of \(T^{\rm info}\) onto the lens plane to derive multiplicative δ_sat.
+4. Bullet Cluster lag.
 
 ### Cross References
 
-WSTAR_ENTROPIC_DERIVATION.md · multiplane_lensing.py · sparc_local_tune.py · SPARC_CHI2_REPORT.md
+WSTAR_ACTION_DERIVATION.md · WSTAR_ENTROPIC_DERIVATION.md · delta_sat_geodesic.py · sparc_local_tune.py · multiplane_lensing.py

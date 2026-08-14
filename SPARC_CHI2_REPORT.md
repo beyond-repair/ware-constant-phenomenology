@@ -1,18 +1,17 @@
-# SPARC Evaluation Report under W_★ = 1/(4π)
+# SPARC Evaluation Report (W_★ = 1/(4π))
 
-**Date:** 2026-08-14 (entropic + fine-tune update)
+**Date:** 2026-08-14 (axiom elevation + local refinement)
 
 ## Macro vs Local
 
 | Test | Status |
 |------|--------|
 | Macro \(r_0(M_b)\propto M_b^{0.40}\) | **Verified** |
-| Local χ² (untuned) | median ~35–40 |
-| Local χ² (Υ, β, γ; macro frozen) | median **~12.3**; 26% < 5; 46% < 10 |
+| Local additive Ware + soft radial | median χ²_red **~11.9**; 29% < 5; 45% < 10 |
+| RAR-style \(a_0 = WGM/r_0^2\) | **Rejected** (median χ²_red > 300) |
 
 ## Notes
 
-- W_star set to entropic candidate \(1/(4\pi)\).
 - Macro relation never varied.
-- γ ∈ [0.6, 1.5] is residual amplitude only (does not change scaling slope).
-- Median improved; not yet O(1). Outliers remain.
+- Best local model remains additive \(V_W^2\) with soft radial form and per-galaxy Υ, γ, β, p.
+- Progress is incremental (40 → 14 → 12.3 → 11.9). Not yet O(1).
