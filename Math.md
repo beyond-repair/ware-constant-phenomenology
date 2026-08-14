@@ -1,14 +1,13 @@
 ---
-# Mathematical & Numerical Framework: Ware Constant Phenomenology (v0.3.3)
+# Mathematical & Numerical Framework: Ware Constant Phenomenology (v0.3.4)
 
-**Last consistency repair:** 2026-08-14  
-**W-resolution status:** Option A formally locked
+**Last update:** 2026-08-14  
+**W-resolution status:** Option A formally locked  
+**SPARC status:** Simple model fails transparent χ² test (see SPARC_CHI2_REPORT.md)
 
 ### Purpose
 
-This repository is the **phenomenological evidence ledger** for the Ware Constant framework. It documents consequences that follow from the fixed invariant \(W_\star \approx 0.08\).
-
-> **Architecture Note:** This file does **not** derive \(W_\star\). It treats \(W_\star\) as an empirical anchor. Derivation attempts live in the derivation repository.
+Phenomenological evidence ledger for the Ware Constant framework. \(W_\star\approx0.08\) is treated as an empirical anchor under Option A.
 
 ---
 
@@ -18,95 +17,55 @@ This repository is the **phenomenological evidence ledger** for the Ware Constan
 W_\star \approx 0.08
 \]
 
-- **Status:** Primary empirical invariant for all gravitational, spectroscopic and lensing formulae.
-- **M2 policy (Option A):** The exponential \(W(n)=0.08\,e^{0.23(n-1)}\) is interpreted strictly as a **relative geometric / LDOS enhancement factor**. It is never substituted for \(W_\star\) inside the Einstein equation or the kill-gate expressions.
-- **Ghost-free bound:** Automatically satisfied for the gravitational sector because the coupling never exceeds 0.08 under Option A.
+M2 exponential is a geometric / LDOS enhancement only; it never enters the Einstein-equation coupling.
 
 ---
 
-## 2. Fundamental Constants & Scales
+## 2. Lensing Saturation (Mapped to |A|^4)
 
-| Constant | Symbol | Value / Relation |
-|----------|--------|------------------|
-| Gravitational constant | \(G\) | \(6.67430\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\) |
-| Solar mass | \(M_\odot\) | \(1.9885\times10^{30}\,\mathrm{kg}\) |
-| Representative baryonic mass | \(M_b\) | \(10^{11}M_\odot\) |
-| Reference coherence scale | \(r_0\) | \(\approx0.45\,\mathrm{kpc}\approx1.388\times10^{19}\,\mathrm{m}\) |
+From the action, \(r_\mathrm{sat}/r_0 = \xi^{-1/2}\) with \(\xi\equiv\lambda_A\langle A^2\rangle/W\).
+
+Minimal map:
+\[
+\delta_\mathrm{sat} = \frac{\mathrm{geometric\_prefactor}}{2W_\star}\,\xi^{-1/2}
+\]
+
+Target \(\delta_\mathrm{sat}=1.2\) ⇒ \(\xi\approx27.13\) (geometric_prefactor=1).  
+\(\delta_\mathrm{sat}\) is no longer an independent tune; \(\xi\) remains microscopic and free. Script: `derive_delta_sat.py`.
 
 ---
 
-## 3. Phenomenological Sectors
+## 3. Rotation Curves / SPARC
 
-### A. Rotation Curve Dynamics
-
-\[
-a_{\rm total}=\frac{GM_b}{r^2}+\frac{W_\star GM_b}{r_0 r},\qquad
-v_\infty^2=\frac{W_\star GM_b}{r_0}
-\]
-
-### B. Lensing Phenomenology (Saturated Form)
-
-Raw (historically written) expression:
-
-\[
-\delta_{\rm raw}=\frac{\pi W_\star D_l}{4r_0}
-\]
-
-is dimensionally inconsistent with O(1) amplification at cosmological distances. The working phenomenological replacement is
-
-\[
-\delta_{\rm eff}=\frac{\delta_{\rm raw}}{1+\delta_{\rm raw}/\delta_{\rm sat}},\qquad
-{\rm factor}=1+\delta_{\rm eff}
-\]
-
-with \(\delta_{\rm sat}=1.2\) chosen so that the asymptotic factor equals the published target ~2.2. This saturation is an **explicit phenomenological parameter**; a first-principles derivation from the Schwarzschild-Ware metric (including \(|A|^4\) saturation) remains open.
-
-### C. Informational Screening
-
-\(S(\rho)\to0\) (dense), \(S(\rho)\to1\) (diffuse).
-
-### D. Proca Informational Sector
-
-Dispersion \(\omega^2(k)=k^2+m_{\rm eff}^2\) with \(m_{\rm eff}^2=m^2+W_\star\kappa\rho_b^\alpha\). Under Option A the gravitational coupling stays at \(W_\star\).
+Transparent χ² under the locked asymptotic law yields median \(\chi^2_\mathrm{red}\approx40\).  
+**The previously claimed "<5% residual" is not supported.** Full report: `SPARC_CHI2_REPORT.md`.
 
 ---
 
-## 4. Recursive Ansatz (M2) — Geometric Only
-
-\[
-f(n)=e^{0.23(n-1)}
-\]
-
-is retained solely as a relative enhancement of LDOS / geometric integrals in the engineering sector. It does **not** renormalise the Einstein-equation coupling.
-
----
-
-## 5. Internal Consistency Ledger
+## 4. Internal Consistency Ledger
 
 | Component | Status |
 |-----------|--------|
-| Ware Invariant \(W_\star\) | Locked at ≈0.08 (Option A) |
-| Rotation Curves | Reproduced within framework |
-| Lensing | O(1) factor recovered via explicit saturation |
-| Screening | Reproduced within framework |
-| Proca Sector | Mathematically consistent |
-| M2 Recursion | Geometric enhancement only |
+| \(W_\star\) lock (Option A) | Locked |
+| Lensing δ_sat | Mapped to ξ; geometric_prefactor pending ray-trace |
+| SPARC χ² | **Fail** under simple global-W model |
+| Muonic / solar diagnostics | Order-of-magnitude only |
 | First-principles derivation of \(W_\star\) | Open |
-| First-principles lensing saturation | Open |
+| Full EM BVP on Sierpinski | Electrostatic BEM released; RF open |
 
 ---
 
-## 6. Primary Open Problems
+## 5. Open Problems (Priority Order)
 
-1. Derivation of \(W_\star\) from entropy / geometry / information.
-2. First-principles origin of the lensing saturation scale \(\delta_{\rm sat}\).
-3. Full SPARC \(\chi^2\) and ray-traced lens modelling under the locked parameter set.
-4. Mesh-converged force on a physically solved electromagnetic boundary-value problem (the present coupling uses synthetic fields only).
+1. Recalibrate or extend the galactic acceleration law until SPARC median \(\chi^2_\mathrm{red}\sim\mathcal{O}(1)\).
+2. Compute geometric_prefactor for lensing by geodesic integration of the saturated metric.
+3. Promote electrostatic BEM to a full RF / magnetostatic solution on the Sierpinski surface.
+4. Derive \(W_\star\) from entropy / geometry / information.
 
 ---
 
 ### Cross References
 
-- Synthesis layer: CFTv3.3-IQG-Unified-Framework (CONSISTENCY.md)
-- W-resolution note: W3_RESOLUTION_NOTE.md (Option A locked)
-- Geometry + evaluator coupling: stress-tensor-modification / couple_sierpinski_evaluator.py
+- SPARC_CHI2_REPORT.md, derive_delta_sat.py, killgate_verification.py
+- stress-tensor-modification: physics_evaluator.py, bem_sierpinski.py, couple_sierpinski_evaluator.py
+- CFTv3.3-IQG-Unified-Framework/CONSISTENCY.md
