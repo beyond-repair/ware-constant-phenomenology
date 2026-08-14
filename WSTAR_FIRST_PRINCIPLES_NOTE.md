@@ -1,58 +1,35 @@
 # Working Note: First-Principles Paths to W_★ ≈ 0.08
 
-**Date:** 2026-08-14  
-**Status:** Exploratory — no completed derivation.  
-**Policy context:** Option A locked (gravitational coupling = 0.08).
+**Date:** 2026-08-14 (spectral pass)  
+**Status:** No completed derivation. Spectral and toy one-loop results recorded.
 
----
+## Spectral (Route C) on Finite 0.45 Mesh
 
-## 1. What Must Be Derived
+| Ratio | Value |
+|-------|-------|
+| λ₁/λ_N | 0.029 |
+| 1/(4π) | **0.0796** |
+| λ₁/(λ₁+λ_N) | 0.028 |
+| std/mean | 0.56 |
 
-A successful first-principles derivation should:
+No mesh spectral ratio cleanly equals 0.08. The analytic value 1/(4π) remains the closest coincidence.
 
-1. Produce a dimensionless number of order 0.08 without inserting the thrust target or SPARC velocities by hand.
-2. Recover the screening / projection / transport interpretations as limiting cases.
-3. Be consistent with the Proca action already written in the phenomenology notes.
-4. Explain why the same number appears across muonic, galactic, and (engineered) vacuum sectors.
+## One-Loop Toy (Route B)
 
----
+Schematic effective potential with ghost-critical W_c = 0.125 prefers W near the upper end of the scan (~0.12), sensitive to parameter choices. Not a controlled derivation.
 
-## 2. Candidate Routes
+## Status of Routes
 
-### Route A — Entropic / holographic boundary ratio
-α = 0.45 is already linked to boundary-entropy scaling.  
-Numerical coincidences: \(1/(4\pi)\approx0.080\), \(\alpha(1-\alpha)=0.2475\).  
-Status: suggestive; no controlled derivation yet.
+| Route | Status |
+|-------|--------|
+| A Entropic / 1/(4π) | Best numerical coincidence; no derivation |
+| B Ghost-bound attractor | Toy model only |
+| C Spectral LDOS | Finite-mesh ratios do not yield 0.08 |
+| D IR cutoff hierarchy | Not pursued this pass |
+| E Anomaly coefficient | Same 1/(4π) coincidence |
 
-### Route B — Ghost-free bound saturation
-Ghost-freedom for \(W<0.125\). Fraction of critical coupling: \((2/3)\times0.125\approx0.083\).  
-Status: requires a dynamical attractor argument.
+## Required for Closure
 
-### Route C — Spectral / LDOS moment of the 0.45 Sierpinski lattice
-Hausdorff dimension and M2 exponent already motivated by the lattice.  
-Status: requires precise spectral computation.
+Controlled continuum spectral calculation on the infinite lattice, or a derived one-loop effective potential from the actual Proca + Einstein action, with all coefficients fixed by the Lagrangian.
 
-### Route D — IR cutoff hierarchy
-\(\lambda=r_0\exp(-1/(2W))\). Matching to an independent scale can solve for W but often re-introduces tuning.
-
-### Route E — Anomaly coefficient
-\(1/(4\pi)\approx0.080\) appears in several anomaly contexts.  
-Status: needs an explicit anomaly calculation in the Proca-coupled theory.
-
----
-
-## 3. Recommended Immediate Work
-
-1. Spectral zeta / LDOS moment on the 0.45 lattice (Route C).
-2. One-loop effective potential for the Proca condensate (Route B).
-3. Test whether boundary terms in the action naturally produce \(1/(4\pi)\) (Routes A/E).
-
----
-
-## 4. What Is *Not* a Derivation
-
-Back-solving W from the thrust target or from SPARC \(v_\infty\) are consistency checks, not derivations.
-
----
-
-*End of working note.*
+Script: `spectral_Wstar.py`
