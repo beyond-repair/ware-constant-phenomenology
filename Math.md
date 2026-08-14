@@ -1,25 +1,26 @@
 ---
-# Mathematical & Numerical Framework: Ware Constant Phenomenology (v0.3.2)
+# Mathematical & Numerical Framework: Ware Constant Phenomenology (v0.3.3)
 
-**Last consistency repair:** 2026-08-14
+**Last consistency repair:** 2026-08-14  
+**W-resolution status:** Option A formally locked
 
 ### Purpose
 
 This repository is the **phenomenological evidence ledger** for the Ware Constant framework. It documents consequences that follow from the fixed invariant \(W_\star \approx 0.08\).
 
-> **Architecture Note:** This file does **not** derive \(W_\star\). It treats \(W_\star\) as an empirical anchor. Derivation attempts live in the derivation repository. Any claim that \(W_\star\) has been derived from first principles must be verified against the actual content of that repository (currently a high-level sketch).
+> **Architecture Note:** This file does **not** derive \(W_\star\). It treats \(W_\star\) as an empirical anchor. Derivation attempts live in the derivation repository.
 
 ---
 
-## 1. Core Invariant
+## 1. Core Invariant (Option A Locked)
 
 \[
 W_\star \approx 0.08
 \]
 
-- **Status:** Primary empirical invariant.
-- **Role:** \(W_\star \to\) observable consequences.
-- **Methodology:** Reproduced within the framework; external verification remains future work.
+- **Status:** Primary empirical invariant for all gravitational, spectroscopic and lensing formulae.
+- **M2 policy (Option A):** The exponential \(W(n)=0.08\,e^{0.23(n-1)}\) is interpreted strictly as a **relative geometric / LDOS enhancement factor**. It is never substituted for \(W_\star\) inside the Einstein equation or the kill-gate expressions.
+- **Ghost-free bound:** Automatically satisfied for the gravitational sector because the coupling never exceeds 0.08 under Option A.
 
 ---
 
@@ -27,10 +28,10 @@ W_\star \approx 0.08
 
 | Constant | Symbol | Value / Relation |
 |----------|--------|------------------|
-| Gravitational constant | \(G\) | \(6.67430 \times 10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\) |
-| Solar mass | \(M_\odot\) | \(1.9885 \times 10^{30}\,\mathrm{kg}\) |
-| Representative baryonic mass | \(M_b\) | \(10^{11} M_\odot\) |
-| Reference coherence scale | \(r_0\) | \(\approx 0.45\,\mathrm{kpc} \approx 1.388 \times 10^{19}\,\mathrm{m}\) |
+| Gravitational constant | \(G\) | \(6.67430\times10^{-11}\,\mathrm{m^3\,kg^{-1}\,s^{-2}}\) |
+| Solar mass | \(M_\odot\) | \(1.9885\times10^{30}\,\mathrm{kg}\) |
+| Representative baryonic mass | \(M_b\) | \(10^{11}M_\odot\) |
+| Reference coherence scale | \(r_0\) | \(\approx0.45\,\mathrm{kpc}\approx1.388\times10^{19}\,\mathrm{m}\) |
 
 ---
 
@@ -39,47 +40,44 @@ W_\star \approx 0.08
 ### A. Rotation Curve Dynamics
 
 \[
-a_{\rm total} = \frac{G M_b}{r^2} + \frac{W_\star G M_b}{r_0 r}
-\]
-\[
-v_\infty^2 = \frac{W_\star G M_b}{r_0}
+a_{\rm total}=\frac{GM_b}{r^2}+\frac{W_\star GM_b}{r_0 r},\qquad
+v_\infty^2=\frac{W_\star GM_b}{r_0}
 \]
 
-Status: Reproduced within framework using SPARC-calibrated coherence scale.
+### B. Lensing Phenomenology (Saturated Form)
 
-### B. Lensing Phenomenology
+Raw (historically written) expression:
 
 \[
-\theta_E = \theta_{E,\rm GR} \left(1 + \frac{\pi W_\star D_l}{4 r_0}\right)
+\delta_{\rm raw}=\frac{\pi W_\star D_l}{4r_0}
 \]
-(with saturation at high field strength). Status: Reproduced (LRG 3-757 ~2.2×).
+
+is dimensionally inconsistent with O(1) amplification at cosmological distances. The working phenomenological replacement is
+
+\[
+\delta_{\rm eff}=\frac{\delta_{\rm raw}}{1+\delta_{\rm raw}/\delta_{\rm sat}},\qquad
+{\rm factor}=1+\delta_{\rm eff}
+\]
+
+with \(\delta_{\rm sat}=1.2\) chosen so that the asymptotic factor equals the published target ~2.2. This saturation is an **explicit phenomenological parameter**; a first-principles derivation from the Schwarzschild-Ware metric (including \(|A|^4\) saturation) remains open.
 
 ### C. Informational Screening
 
-\(S(\rho) \to 0\) (dense), \(S(\rho) \to 1\) (diffuse). Status: Reproduced within framework.
+\(S(\rho)\to0\) (dense), \(S(\rho)\to1\) (diffuse).
 
 ### D. Proca Informational Sector
 
-\[
-\mathcal{L}_{\rm Proca} = -\frac14 F_{\mu\nu}F^{\mu\nu} + \frac12 m^2 A_\mu A^\mu + \frac{W_\star}{2}(\bar\psi\gamma^\mu A_\mu\psi)\rho_b^\alpha + \dots
-\]
-\[
-m_{\rm eff}^2 = m^2 + W_\star \kappa \rho_b^\alpha, \qquad \omega^2(k) = k^2 + m_{\rm eff}^2
-\]
-
-Status: Internally consistent EFT sector; source terms under active refinement.
+Dispersion \(\omega^2(k)=k^2+m_{\rm eff}^2\) with \(m_{\rm eff}^2=m^2+W_\star\kappa\rho_b^\alpha\). Under Option A the gravitational coupling stays at \(W_\star\).
 
 ---
 
-## 4. Recursive Ansatz (M2)
+## 4. Recursive Ansatz (M2) — Geometric Only
 
 \[
-W(n) = W_\star \, e^{0.23(n-1)}
+f(n)=e^{0.23(n-1)}
 \]
 
-- Exponent 0.23 is an ansatz motivated by the Hausdorff dimension of the 0.45 Sierpinski lattice.
-- Tabulated engineering values (W(3)≈0.1267, W(4)≈0.159) **exceed** the earlier stability threshold \(W < 0.125\).
-- **Classification:** Phenomenological scaling ansatz, **not** a completed renormalization theory. Stability claims require revision.
+is retained solely as a relative enhancement of LDOS / geometric integrals in the engineering sector. It does **not** renormalise the Einstein-equation coupling.
 
 ---
 
@@ -87,33 +85,28 @@ W(n) = W_\star \, e^{0.23(n-1)}
 
 | Component | Status |
 |-----------|--------|
-| Ware Invariant \(W_\star\) | Locked at ≈0.08 |
+| Ware Invariant \(W_\star\) | Locked at ≈0.08 (Option A) |
 | Rotation Curves | Reproduced within framework |
-| Lensing | Reproduced within framework (~2.2×) |
+| Lensing | O(1) factor recovered via explicit saturation |
 | Screening | Reproduced within framework |
 | Proca Sector | Mathematically consistent |
-| M2 Recursion | Provisional ansatz (stability tension) |
-| LDOS Scaling | Phenomenological ansatz |
+| M2 Recursion | Geometric enhancement only |
 | First-principles derivation of \(W_\star\) | Open |
+| First-principles lensing saturation | Open |
 
 ---
 
 ## 6. Primary Open Problems
 
-1. **Derivation**
-   \[
-   \boxed{W_\star \stackrel{?}{=} \mathcal{F}(\text{entropy},\text{geometry},\text{information})}
-   \]
-   Success criteria: dimensionless, untuned, recovers transport/projection/screening limits, explains recurrence.
-
-2. **Stability vs M2 table** — reconcile or abandon the \(W < 0.125\) bound.
-
-3. **Executable validation artifacts** — full evaluator, geometry generator, and reproducible SPARC/LRG notebooks are still missing from the public cluster.
+1. Derivation of \(W_\star\) from entropy / geometry / information.
+2. First-principles origin of the lensing saturation scale \(\delta_{\rm sat}\).
+3. Full SPARC \(\chi^2\) and ray-traced lens modelling under the locked parameter set.
+4. Mesh-converged force on a physically solved electromagnetic boundary-value problem (the present coupling uses synthetic fields only).
 
 ---
 
 ### Cross References
 
 - Synthesis layer: CFTv3.3-IQG-Unified-Framework (CONSISTENCY.md)
-- Derivation repo: -ware-constant-derivation
-- Engineering family: coherence-drive and its seven sub-repositories
+- W-resolution note: W3_RESOLUTION_NOTE.md (Option A locked)
+- Geometry + evaluator coupling: stress-tensor-modification / couple_sierpinski_evaluator.py
