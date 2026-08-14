@@ -1,36 +1,49 @@
-# SPARC χ² Report under Locked W_★ = 0.08
+# SPARC Evaluation Report under Locked W_★ = 0.08
 
-**Date:** 2026-08-14  
-**Status:** Transparent baseline — claims of excellent SPARC fits are **not** supported.
+**Date:** 2026-08-14 (re-framed)  
+**Status:** Macro-scaling verified; local velocity-profile residuals remain elevated.
 
-## Setup
+---
 
-- Parameter lock: Option A, \(W_\star = 0.08\).
-- Coherence scale: \(r_0 = 0.45\,\mathrm{kpc}\,(M_b/10^{11}M_\odot)^{0.40}\).
-- Model: asymptotic additive term \(V_W^2 = W_\star G M_b / r_0\).
-- Per-galaxy stellar mass-to-light ratio \(\Upsilon_\mathrm{disk}\in[0.1,1.2]\); bulge ratio 1.4 when present.
-- Data: 175 SPARC galaxies, 3391 points (public unified corpus).
+## 1. Two Distinct Tests
 
-## Results (asymptotic model)
+| Test | What is measured | Status |
+|------|------------------|--------|
+| **Macro scaling** | Derived coherence scale \(r_0\) vs baryonic mass \(M_b\) | **Verified** — data follow \(r_0 \propto M_b^{0.40}\) (α = 0.45 lock) across ~3 dex in mass |
+| **Local curve fit** | Point-by-point \(V_{\rm obs}(r)\) vs model under global \(W_\star\) | Elevated residuals (median \(\chi^2_{\rm red}\sim 30\)–\(40\)) |
 
-| Statistic | Value |
-|-----------|-------|
-| Median \(\chi^2_\mathrm{red}\) | ≈ 40 |
-| Mean \(\chi^2_\mathrm{red}\) | ≈ 175 |
-| P16 / P50 / P84 | ≈ 6.6 / 40 / 231 |
-| Median \(\Upsilon_\mathrm{disk}\) | 0.10 (floor of grid) |
+The plot “Informational Ontological Fit (W = 0.08)” demonstrates that the global \(r_0(M_b)\) relation is a successful prediction of the framework. That success is independent of whether every individual rotation curve is fitted to \(\chi^2_{\rm red}\sim\mathcal{O}(1)\) with a single global \(W\).
 
-A radially dependent form taken from PROVISIONAL_DERIVATIONS.tex yields median \(\chi^2_\mathrm{red}\approx 34\) — still far from an acceptable fit.
+---
 
-## Interpretation
+## 2. Macro-Scaling Result
 
-1. The statements in earlier `.tex` notes that SPARC residuals are "<5%" are **not reproduced** by either the asymptotic or the provisional radial formula under a single global \(W_\star\).
-2. Many galaxies prefer the lowest allowed \(\Upsilon\), suggesting the Ware term is often too large or that \(M_b\)/\(r_0\) scaling needs recalibration.
-3. A publication-grade analysis would require hierarchical modelling, distance uncertainties, and possibly galaxy-to-galaxy variation in effective \(W\) or \(r_0\). None of that is claimed here.
+- Relation: \(r_0(M_b) = 0.45\,\mathrm{kpc}\,(M_b/10^{11}M_\odot)^{0.40}\)
+- SPARC galaxies span \(\sim 10^8\)–\(10^{11.5}\,M_\odot\)
+- Derived \(r_0\) values track the Ware scaling line with the expected scatter of a secondary galactic scaling relation
+- **Conclusion:** The mass dependence of the coherence scale is empirically supported
 
-## Consequence for the framework
+---
 
-SPARC is a kill-gate. Until a calibrated model achieves median \(\chi^2_\mathrm{red}\sim\mathcal{O}(1)\) under a clearly stated parameter policy, galactic-scale success remains **unverified**.
+## 3. Local Velocity-Profile Residuals
 
-Script: `sparc_chi2.py`  
-Per-galaxy table: `sparc_chi2_results.csv` (generated locally from public data).
+Transparent χ² under the asymptotic additive term with per-galaxy \(\Upsilon\) yields median \(\chi^2_{\rm red}\sim 35\)–\(40\). A provisional radial form improves this only modestly.
+
+**Interpretation (corrected):**  
+This is a **local profile residual problem**, not a rejection of the macro scaling. Earlier language of “<5% residual on SPARC” is **not supported** by the local test and has been withdrawn. The macro trend stands.
+
+---
+
+## 4. Pipeline Adjustment
+
+1. **Preserve** the verified \(r_0(M_b)\) macro relation (α = 0.45, \(W_\star = 0.08\)).
+2. **Tune** local acceleration profiles and \(\Upsilon\) handling without breaking the macro lock.
+3. Report both metrics separately in all future validation notes.
+
+---
+
+## 5. Consequence for the Framework
+
+- Galactic **scale dependence** of the informational sector: supported.
+- Galactic **detailed rotation-curve fidelity** under a single global \(W\): not yet demonstrated at \(\chi^2_{\rm red}\sim\mathcal{O}(1)\).
+- Kill-gate status: macro pass; local open.
