@@ -2,7 +2,7 @@
 
 **Master index:** [coherence-drive](https://github.com/beyond-repair/coherence-drive)  
 **Governance:** [CLAIM_VALIDATION](https://github.com/beyond-repair/ADL-Governance/blob/main/docs/CLAIM_VALIDATION.md)  
-**Sweep:** 109 (2026-09-07)
+**Sweep:** 116 (2026-09-07) — prior lock Sweep-109
 
 | Field | Value |
 |-------|--------|
@@ -13,6 +13,7 @@
 | Thrust validated | **false** |
 | SPARC χ² as a pass | **UNSUPPORTED** (local median reported ~9; not O(1)) |
 | Bullet Cluster lag resolved | **UNSUPPORTED** unless a dated passing artifact is cited |
+| Docs-presence CI | run 34150611709 success (file presence only) |
 
 Canonical Ware recursion (software alignment):
 
