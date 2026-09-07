@@ -1,7 +1,8 @@
 # Claim status
 
 **Master index:** [coherence-drive](https://github.com/beyond-repair/coherence-drive)  
-**Governance:** [CLAIM_VALIDATION](https://github.com/beyond-repair/ADL-Governance/blob/main/docs/CLAIM_VALIDATION.md)
+**Governance:** [CLAIM_VALIDATION](https://github.com/beyond-repair/ADL-Governance/blob/main/docs/CLAIM_VALIDATION.md)  
+**Sweep:** 109 (2026-09-07)
 
 | Field | Value |
 |-------|--------|
@@ -10,9 +11,13 @@
 | Experimental validation | **false** |
 | Energy extraction validated | **false** |
 | Thrust validated | **false** |
+| SPARC χ² as a pass | **UNSUPPORTED** (local median reported ~9; not O(1)) |
+| Bullet Cluster lag resolved | **UNSUPPORTED** unless a dated passing artifact is cited |
 
 Canonical Ware recursion (software alignment):
 
 ```text
 W(n) = 0.08 * exp(0.23 * (n - 3))
 ```
+
+Scripts in this tree are **attackable calculations**, not experimental confirmation.
