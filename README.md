@@ -14,6 +14,8 @@
 
 Not a whitepaper-only repo — **scripts you can run offline** so fits and kill-gates are attackable. Default claim **≤2** (phenomenology, not proven ontology).
 
+Constant-W action freeze (2026-09-23): [`CONSTANT_W_ACTION_PRINCIPLE.md`](CONSTANT_W_ACTION_PRINCIPLE.md) — spectral source derived; local W(x) and numerical 0.08 not derived. Check: `python verify_constant_W_action.py`.
+
 ---
 
 ## Visual workflow
@@ -45,6 +47,7 @@ Not a whitepaper-only repo — **scripts you can run offline** so fits and kill-
 python sparc_run.py --mode o1
 python killgate_verification.py
 python white_light_qed_bounds.py
+python verify_constant_W_action.py
 ```
 
 **Conjunction:** geometry/stress live elsewhere; this repo is **galactic-style scoring**. Theory freeze: [coherence-drive](https://github.com/beyond-repair/coherence-drive).
