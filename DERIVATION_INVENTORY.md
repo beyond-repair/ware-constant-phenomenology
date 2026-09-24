@@ -1,9 +1,7 @@
 # Derivation inventory — what is proved in this work
 
-**Date:** 2026-09-23 (Proof 6C pass)  
+**Date:** 2026-09-23 (Proof 6C.1 / 6C.2)  
 **Rule:** a derivation is a closed implication from stated axioms or an action variation.
-
-Companions: AUDIT_2026-09-23_PROOF5R.md, _PROOF6A.md, _PROOF6B.md, [AUDIT_2026-09-23_PROOF6C.md](AUDIT_2026-09-23_PROOF6C.md).
 
 Master: https://github.com/beyond-repair/-ware-constant-derivation
 
@@ -11,19 +9,19 @@ Master: https://github.com/beyond-repair/-ware-constant-derivation
 
 | ID | Statement | Where |
 |----|-----------|-------|
-| D11–D20 | Constant-W through 6B UV ledger / MSbar remainder | prior audits |
-| D21 | Local Minkowski jet: Case A q=m_R^{2}/Z_R, Res=-1/Z_R; Case B opposite residues when Delta_R>0 | PROOF_6C_LORENTZIAN_POLE_AUDIT.md |
-| D22 | Nonlocal cut of I_d opens at p_M^{2}=4ω^{2} | same |
+| D11–D22 | Constant-W through 6C local poles and 4ω² threshold | prior audits |
+| D23 | Im I_R(-q-i0)=[ω^4/(16π)]sqrt(1-4ω²/q) θ(q-4ω²); σ_I=Im I_R/π | PROOF_6C1_NONLOCAL_CONTINUATION.md |
+| D24 | Isolated real poles only possible on (0,4ω²); existence parameter-conditional | PROOF_6C2_POLE_CUT_CLASSIFICATION.md |
 
 D1–D10 unchanged.
 
 ## B. Rejected
 
-R4–R6 unchanged. R7: 6C produces a unique healthy Coherence Drive pole or a numerical Z.
+R4–R7 unchanged. R8: theory is Lee-Wick. R9: 6C.2 derives a unique healthy mode or licenses 6D.
 
 ## C. Open
 
-Full subtracted I_d(-q-i0) pole search (Case C remainder); signs of (m_R^{2},Z_R) from S_W; unique Z_ren; W(x)→W(n); 0.08; 0.23; thrust.
+S_W; unique Z_ren; whether a derived S_W produces Outcome 1; W(x)→W(n); 0.08; 0.23; thrust.
 
 ```
 experimental_validation     = false
