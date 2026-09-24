@@ -1,6 +1,6 @@
 # Derivation inventory — what is proved in this work
 
-**Date:** 2026-09-23 (Proof 6D.1–6D.3)  
+**Date:** 2026-09-23 (Proof 7A)  
 **Rule:** a derivation is a closed implication from stated axioms or an action variation.
 
 Master: https://github.com/beyond-repair/-ware-constant-derivation
@@ -9,19 +9,19 @@ Master: https://github.com/beyond-repair/-ware-constant-derivation
 
 | ID | Statement | Where |
 |----|-----------|-------|
-| D11–D24 | Constant-W through 6C.2 conditional poles | prior audits |
-| D25 | S_W is an independent input, not produced by Tr ln K | PROOF_6D1_SW_STATIONARITY.md |
-| D26 | Constant stationarity is the spectral source; it constrains (S_W,W0) and does not output W0 | same |
+| D11–D26 | Constant-W through 6D stationarity gate | prior audits |
+| D27 | In the freeze, W is an insertion parameter, [W]=0; no symmetry-fixed S_W | PROOF_7A_SW_ORIGIN.md |
+| D28 | Local constant minimum requires S_W''(W0)+Gamma_matter''(W0)>0; matter alone cannot stabilize W | same |
 
 D1–D10 unchanged.
 
 ## B. Rejected
 
-R4–R9 unchanged. R10: the matter loop determines W. R11: defining Z_R determines W. R12: a free coefficient fitted to 0.08 is a derivation.
+R4–R12 unchanged. R13: Tr ln K is S_W. R14: a finite polynomial S_W is renormalization-closed when [W]=0. R15: integrating phi produces S_W.
 
 ## C. Open / frozen
 
-Independent derivation of L_W: OPEN (blocks dynamical W). Unique Z_ren; W(x)→W(n); 0.08; 0.23; thrust: NOT DERIVED.
+Microscopic X whose integral yields calculable (v,z,λ): OPEN (would be a new package). Dynamical W, 0.08, 0.23, W(n), thrust: FROZEN / NOT DERIVED.
 
 ```
 experimental_validation     = false
