@@ -145,8 +145,10 @@ def main():
     print(f"\n2. Asymptotic velocity (Mb = 1e11 M_sun)")
     print(f"   r_0          = {r0(Mb)/KPC:.3f} kpc")
     print(f"   v_∞          = {v:.1f} km/s")
-    print(f"   Typical SPARC late-type range : 100–250 km/s")
-    print(f"   Status       : lies inside observed range for the locked parameters")
+    print(f"   Stated SPARC late-type range : 100–250 km/s")
+    inside = 100.0 <= v <= 250.0
+    print(f"   Status       : {'INSIDE' if inside else 'MISS — outside'} that stated range")
+    print(f"                  (parameters not refit to force a match)")
 
     # 3. Lensing — saturated
     Dl_m = 1.2e9 * PC
@@ -166,13 +168,16 @@ def main():
     print(f"\n4. Solar-system screening diagnostic η")
     print(f"   η (1 AU)     = {eta:.3e}")
     print(f"   Target order : ~5e-11")
-    print(f"   Status       : within ~20× of target order; acceptable")
-    print(f"                  for a rough diagnostic")
+    ratio = eta / 5e-11
+    print(f"   Ratio to 5e-11: {ratio:.2f}×")
+    print(f"   Status       : rough diagnostic only; not a PPN measurement")
 
     print("\n" + "=" * 60)
     print("Summary")
-    print("  - Gates 1, 2, 4 consistent under W_star=0.08 (Option A).")
-    print("  - Gate 3 now yields O(1) factor via phenomenological saturation.")
+    print("  - Gate 1 matches ~0.07 fm by construction of the scale.")
+    print("  - Gate 2 v_∞ is whatever the locked formula prints (see above).")
+    print("  - Gate 3 factor is 1+δ_sat by the inserted saturation, not a ray trace.")
+    print("  - Gate 4 η is a rough diagnostic, not a measured PPN parameter.")
     print("  - Saturation parameter δ_sat is explicit and tunable;")
     print("    it is not derived from the action in this script.")
     print("  - Full SPARC χ² or ray-traced lens modelling remains future work.")

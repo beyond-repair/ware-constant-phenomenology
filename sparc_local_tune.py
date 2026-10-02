@@ -6,7 +6,8 @@ Additive Ware + soft radial form. RAR-style a0=WGM/r0² rejected.
 from __future__ import annotations
 import numpy as np
 import pandas as pd
-from pathlib import Path
+
+from data_paths import sparc_csv
 
 W = 1.0/(4.0*np.pi)
 G = 4.30091e-6
@@ -54,9 +55,11 @@ def fit(gdf):
     return best
 
 def main():
-    path = Path("sparc_flat.csv")
-    if not path.exists():
-        path = Path("/tmp/work/sparc_flat.csv")
+    path = sparc_csv()
+    if path is None:
+        raise SystemExit(
+            "SPARC CSV not found. Use data/sparc_flat_demo.csv or set SPARC_CSV."
+        )
     df = load(str(path))
     rows = []
     for name, gdf in df.groupby("galaxy"):

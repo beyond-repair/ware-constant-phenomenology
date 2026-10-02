@@ -12,37 +12,50 @@ Usage:
   python sparc_run.py --mode grid  # legacy grid tuner
   python sparc_run.py --mode chi2  # legacy transparent chi2
 
-Requires: sparc_flat.csv (SPARC flat table) in cwd or path via SPARC_CSV.
+Requires a SPARC-style flat CSV. Offline default:
+  data/sparc_flat_demo.csv (synthetic DEMO) or root sparc_flat.csv.
+Override with SPARC_CSV=path/to/real_sparc_flat.csv
+(e.g. SPARC_CSV=data/sparc_flat.csv for the optional Lelli+2016 table).
 """
 from __future__ import annotations
+
 import argparse
-import os
-import sys
-from pathlib import Path
+
+from data_paths import sparc_csv
+
 
 def main():
     p = argparse.ArgumentParser(description="SPARC pipeline entrypoint")
-    p.add_argument("--mode", choices=("o1", "grid", "chi2"), default="o1",
-                   help="o1=continuous (default), grid=legacy local_tune, chi2=legacy report")
+    p.add_argument(
+        "--mode",
+        choices=("o1", "grid", "chi2"),
+        default="o1",
+        help="o1=continuous (default), grid=legacy local_tune, chi2=legacy report",
+    )
     args = p.parse_args()
 
-    # ensure data hint
-    csv = os.environ.get("SPARC_CSV", "sparc_flat.csv")
-    if not Path(csv).exists():
-        print(f"Note: {csv} not found in cwd. Scripts may look under /tmp paths.")
-        print("Download SPARC flat CSV and set SPARC_CSV= or place sparc_flat.csv here.")
+    found = sparc_csv()
+    if found is None:
+        print("Note: no SPARC CSV found. Scripts expect data/sparc_flat_demo.csv")
+        print("or SPARC_CSV= pointing at a real SPARC flat table.")
+    else:
+        print(f"Using SPARC CSV: {found}")
 
     if args.mode == "o1":
         import sparc_o1
+
         sparc_o1.main()
     elif args.mode == "grid":
         print("DEPRECATED mode=grid → sparc_local_tune (prefer mode=o1)")
         import sparc_local_tune
+
         sparc_local_tune.main()
     else:
         print("DEPRECATED mode=chi2 → sparc_chi2 (prefer mode=o1)")
         import sparc_chi2
+
         sparc_chi2.main()
+
 
 if __name__ == "__main__":
     main()
