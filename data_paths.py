@@ -1,11 +1,11 @@
 """Locate the SPARC flat table used by the scoring scripts.
 
-Resolution order (offline-first Claim-0):
+Resolution order:
 1. SPARC_CSV, if set (must exist; no silent fallback).
-2. ./sparc_flat.csv in the working directory (DEMO copy when shipped).
-3. data/sparc_flat_demo.csv — synthetic DEMO (default stranger path).
-4. data/sparc_flat.csv — optional Lelli+2016 adapter table if present.
-5. Legacy /tmp paths for older local layouts.
+2. data/sparc_flat.csv — committed Lelli, McGaugh & Schombert 2016 table.
+3. ./sparc_flat.csv only if the committed table is absent.
+4. Legacy /tmp paths.
+5. data/sparc_flat_demo.csv last (synthetic; not SPARC).
 """
 from __future__ import annotations
 
@@ -21,13 +21,12 @@ def sparc_csv():
         path = Path(env)
         return path if path.is_file() else None
     candidates = [
+        ROOT / "data" / "sparc_flat.csv",
         Path.cwd() / "sparc_flat.csv",
         ROOT / "sparc_flat.csv",
-        ROOT / "data" / "sparc_flat_demo.csv",
-        Path.cwd() / "data" / "sparc_flat_demo.csv",
-        ROOT / "data" / "sparc_flat.csv",
         Path("/tmp/front/sparc_flat.csv"),
         Path("/tmp/work/sparc_flat.csv"),
+        ROOT / "data" / "sparc_flat_demo.csv",
     ]
     for candidate in candidates:
         if candidate.is_file():
@@ -38,10 +37,10 @@ def sparc_csv():
 def is_demo(path: Path | None) -> bool:
     if path is None:
         return False
-    name = path.name.lower()
+    name = Path(path).name.lower()
     if "demo" in name:
         return True
-    # Root-level sparc_flat.csv is the DEMO alias; data/sparc_flat.csv is real SPARC.
-    if name == "sparc_flat.csv" and path.resolve().parent.name != "data":
+    # A root-level sparc_flat.csv is the old DEMO alias, not data/sparc_flat.csv.
+    if name == "sparc_flat.csv" and Path(path).resolve().parent.name != "data":
         return True
     return False

@@ -12,10 +12,8 @@ Usage:
   python sparc_run.py --mode grid  # legacy grid tuner
   python sparc_run.py --mode chi2  # legacy transparent chi2
 
-Requires a SPARC-style flat CSV. Offline default:
-  data/sparc_flat_demo.csv (synthetic DEMO) or root sparc_flat.csv.
-Override with SPARC_CSV=path/to/real_sparc_flat.csv
-(e.g. SPARC_CSV=data/sparc_flat.csv for the optional Lelli+2016 table).
+Default table: data/sparc_flat.csv (Lelli+2016).
+Override with SPARC_CSV. data/sparc_flat_demo.csv is synthetic and is not the default.
 """
 from __future__ import annotations
 

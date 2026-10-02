@@ -30,8 +30,8 @@ def test_verify_constant_W_action_pass():
 def test_killgate_runs():
     proc = _run("killgate_verification.py")
     assert proc.returncode == 0, proc.stderr
-    assert "Kill-gate verification" in proc.stdout
-    assert "W_star" in proc.stdout
+    assert "276.5" in proc.stdout
+    assert "MISS — outside" in proc.stdout
 
 
 def test_white_light_runs():
@@ -41,16 +41,25 @@ def test_white_light_runs():
     assert "EH does not produce W_star" in proc.stdout
 
 
-def test_sparc_run_o1_demo_finite_median():
+def test_default_table_is_lelli_and_median_is_printed():
+    import hashlib
+    import os
+
+    os.environ.pop("SPARC_CSV", None)
+    from data_paths import is_demo, sparc_csv
     import sparc_o1
 
-    path = sparc_o1.resolve_sparc_csv()
-    assert path.exists()
+    path = sparc_csv()
+    assert path.resolve() == (ROOT / "data" / "sparc_flat.csv").resolve()
+    assert not is_demo(path)
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    assert digest == "84723347aa1b0ce7c6cf55b0d53016f2216723379058b9926d95fd434accf07a"
     tab = sparc_o1.main()
-    assert len(tab) >= 1
+    assert len(tab) == 165
     med = float(tab.chi2_red.median())
-    assert math.isfinite(med)
-    assert med > 0
+    assert math.isclose(med, 9.098, abs_tol=0.02)
+    assert math.isclose(float((tab.chi2_red < 5).mean() * 100), 35.8, abs_tol=0.2)
+    assert math.isclose(float((tab.chi2_red < 10).mean() * 100), 52.7, abs_tol=0.2)
 
 
 def test_spectral_Wstar_offline():
