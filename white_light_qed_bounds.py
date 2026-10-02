@@ -66,7 +66,8 @@ def main() -> None:
     print(f"  alpha/(45 pi)          = {pre:.6e}")
     print(f"  W_star / (alpha/45 pi) = {W_STAR / pre:.3e}")
     print()
-    print("Conclusion: EH laboratory Du/u is 1e-29 .. 1e-17 in these cases.")
+    print("Lab rows (optical CW through PW-class) print Du/u from 2.962e-29 to 2.962e-17.")
+    print("The 0.01 E_c row is 5.162e-09 and is not a laboratory field.")
     print("EH does not produce W_star. Do not stack anomaly on top of EH.")
     print("=" * 64)
 

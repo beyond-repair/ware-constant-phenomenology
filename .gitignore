@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+sparc_o1_results.csv

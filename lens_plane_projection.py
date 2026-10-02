@@ -31,7 +31,9 @@ def main():
     print("=" * 60)
     print("Lens-plane T_info projection")
     print(f"ξ={xi:.4f}  factor_unsat={1+W*xi:.4f}  factor_sat={1+W*xi_eff:.4f}")
-    print("δ_sat=1.2 recovered via ξ_cap=1.2/W (matching); |A|^4 derivation open.")
+    print("Computed factor is ~1, not ~2.2.")
+    print("ξ_cap=1.2/W is an inserted match; this projection does not produce it.")
+    print("|A|^4 derivation of δ_sat remains open.")
     print("=" * 60)
 
 if __name__ == "__main__":

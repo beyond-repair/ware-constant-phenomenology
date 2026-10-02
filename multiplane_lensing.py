@@ -26,7 +26,8 @@ def angular_diameter_distance(z, H0=70.0, Om=0.3):
         return 0.0
     zp = np.linspace(0, z, 200)
     Ez = np.sqrt(Om*(1+zp)**3 + (1-Om))
-    chi = np.trapezoid(1.0/Ez, zp) * (C/1e3)/H0
+    trap = getattr(np, "trapezoid", None) or np.trapz
+    chi = trap(1.0/Ez, zp) * (C/1e3)/H0
     return chi/(1+z)
 
 def amplification_factor(Dl_m, r0_m, W=W_STAR, delta_sat=DELTA_SAT,
