@@ -48,11 +48,15 @@ pytest -q
 
 ## Demo data disclosure
 
-- `data/sparc_flat_demo.csv` (and root `sparc_flat.csv`) are **synthetic DEMO**
-  tables with four fake galaxies so `sparc_run.py --mode o1` works offline.
-- They are **not** the published SPARC survey. Demo χ²_red is a smoke-test
-  number only.
-- Optional full table: `data/sparc_flat.csv` (Lelli+2016 adapter; rebuild via `tools/build_sparc_flat.py`). Set `SPARC_CSV=data/sparc_flat.csv` to score it. Historical honest median χ²_red ~9 — **UNSUPPORTED** as a pass.
+- Default `data/sparc_flat.csv` is the Lelli, McGaugh & Schombert 2016 SPARC
+  mass models (175 galaxies, 3391 points). See `data/README.md`.
+- `python sparc_run.py --mode o1` on that table prints median χ²_red = **9.098**
+  (165 galaxies with ≥6 points; 35.8% < 5; 52.7% < 10). Constants were not
+  refit. That is still **not** an O(1) pass.
+- `data/sparc_flat_demo.csv` is a four-galaxy synthetic file and is not the
+  default. Its χ² is not a SPARC result.
+- Kill-gate `v_∞` (10^11 M_sun, W=0.08) prints **276.5 km/s** and **misses**
+  the script's stated 100–250 km/s band. Pipeline W is 1/(4π) ≈ 0.079577, not 0.08.
 
 `spectral_Wstar.py` uses an in-repo minimal `sierpinski_generator.py` (geometry
 only). It still reports honestly: **no clean derivation of 0.08** from the mesh.
@@ -64,7 +68,7 @@ only). It still reports honestly: **no clean derivation of 0.08** from the mesh.
 ```text
  1. LOCK ANCHORS          W★ = 1/(4π) · Option A (M2 geometric only)
          │
- 2. LOAD LOCAL DATA       SPARC-style curves (demo CSV or SPARC_CSV)
+ 2. LOAD LOCAL DATA       data/sparc_flat.csv (Lelli+2016) or SPARC_CSV
          │
  3. RUN PIPELINE          sparc_run.py --mode o1
          │

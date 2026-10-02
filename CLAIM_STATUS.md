@@ -6,6 +6,7 @@
 **Addendum:** 2026-09-19 White-Light Mass Hypothesis companion (claim 1)  
 **Addendum:** 2026-09-23 constant-W action freeze (D11–D13; does not raise claim level)  
 **Addendum:** 2026-10-01 pinch-family falsification (does not raise claim level)
+**Addendum:** 2026-10-02 committed-table recompute prints median χ²_red = 9.098 (does not raise claim level)
 
 | Field | Value |
 |--------|--------|
@@ -14,7 +15,7 @@
 | Experimental validation | **false** |
 | Energy extraction validated | **false** |
 | Thrust validated | **false** |
-| SPARC χ² as a pass | **UNSUPPORTED** (local median reported ~9; not O(1)) |
+| SPARC χ² as a pass | **UNSUPPORTED** (committed Lelli+2016 table, median χ²_red = 9.098, not O(1)) |
 | Bullet Cluster lag resolved | **UNSUPPORTED** unless a dated passing artifact is cited |
 | Constant-W spectral source | **DERIVED** (`CONSTANT_W_ACTION_PRINCIPLE.md`) |
 | Local dynamical W(x) | **OPEN** |
